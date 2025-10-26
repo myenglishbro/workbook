@@ -108,6 +108,12 @@ export default function App() {
               Speaking
             </button>
             <button
+              className={`px-3 py-1 text-sm font-bold ${skill === 'listening' ? 'bg-amber-400 text-slate-900' : 'bg-slate-800 text-slate-200'}`}
+              onClick={() => setSkill('listening')}
+            >
+              Listening
+            </button>
+            <button
               className={`px-3 py-1 text-sm font-bold ${skill === 'reading' ? 'bg-amber-400 text-slate-900' : 'bg-slate-800 text-slate-200'}`}
               onClick={() => setSkill('reading')}
             >

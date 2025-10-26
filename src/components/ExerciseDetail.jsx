@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Recorder from './Recorder.jsx'
 import WritingPanel from './WritingPanel.jsx'
-import ReadingQuiz from './ReadingQuiz.jsx' // 👈 usa ReadingQuiz
+import ReadingQuiz from './ReadingQuiz.jsx'
+import ListeningQuiz from './ListeningQuiz.jsx'
 
 export default function ExerciseDetail({ exercise, onBack }) {
   const {
@@ -16,13 +17,15 @@ export default function ExerciseDetail({ exercise, onBack }) {
     targetWords,
     minWords,
     imageUrl,
-    questions = [], // para ReadingQuiz si tu JSON las trae
+    questions = [],
+    videoUrl,
+    youtubeId,
   } = exercise
 
   const [zoomOpen, setZoomOpen] = useState(false)
 
   useEffect(() => {
-    const onKey = (e) => { if (e.key === 'Escape') setZoomOpen(false) }
+    function onKey(e) { if (e.key === 'Escape') setZoomOpen(false) }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
   }, [])
@@ -43,7 +46,7 @@ export default function ExerciseDetail({ exercise, onBack }) {
       </div>
 
       <div className="p-4 space-y-4">
-        {/* Imagen opcional SOLO cuando no es Reading (evita duplicados) */}
+        {/* Imagen opcional cuando no es Reading (evita duplicado) */}
         {imageUrl && skill !== 'reading' ? (
           <div>
             <img
@@ -54,17 +57,8 @@ export default function ExerciseDetail({ exercise, onBack }) {
               loading="lazy"
             />
             {zoomOpen && (
-              <div
-                className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center"
-                onClick={() => setZoomOpen(false)}
-                role="dialog"
-                aria-modal="true"
-              >
-                <img
-                  src={imageUrl}
-                  alt="Imagen ampliada"
-                  className="max-w-[90vw] max-h-[85vh] rounded-2xl shadow-2xl cursor-zoom-out"
-                />
+              <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center" onClick={() => setZoomOpen(false)} role="dialog" aria-modal="true">
+                <img src={imageUrl} alt="Imagen ampliada" className="max-w-[90vw] max-h-[85vh] rounded-2xl shadow-2xl cursor-zoom-out" />
               </div>
             )}
           </div>
@@ -80,9 +74,7 @@ export default function ExerciseDetail({ exercise, onBack }) {
           <div>
             <strong>Ejemplos:</strong>
             <ul className="list-disc pl-5 mt-2 text-slate-300">
-              {examples.slice(0, 3).map((ej, idx) => (
-                <li key={idx}>{ej}</li>
-              ))}
+              {examples.slice(0, 3).map((ej, idx) => (<li key={idx}>{ej}</li>))}
             </ul>
           </div>
         ) : null}
@@ -90,21 +82,15 @@ export default function ExerciseDetail({ exercise, onBack }) {
         {/* Cuerpo según skill */}
         {skill === 'writing' ? (
           <div>
-            <WritingPanel
-              filePrefix={`${id || type}-writing`}
-              limitSec={timeLimitSec}
-              targetWords={targetWords}
-              minWords={minWords}
-            />
+            <WritingPanel filePrefix={`${id || type}-writing`} limitSec={timeLimitSec} targetWords={targetWords} minWords={minWords} />
           </div>
         ) : skill === 'reading' ? (
           <div className="space-y-3">
-            <ReadingQuiz
-              imageUrl={imageUrl}                   // 👈 ahora la imagen la maneja ReadingQuiz
-              title={title || question}
-              questions={questions}                 // si tu JSON incluye preguntas
-              filePrefix={`${id || type}-reading`}
-            />
+            <ReadingQuiz imageUrl={imageUrl} title={title || question} questions={questions} />
+          </div>
+        ) : skill === 'listening' ? (
+          <div className="space-y-3">
+            <ListeningQuiz videoUrl={videoUrl} youtubeId={youtubeId} title={title || question} questions={questions} />
           </div>
         ) : (
           <div>
@@ -115,3 +101,4 @@ export default function ExerciseDetail({ exercise, onBack }) {
     </div>
   )
 }
+

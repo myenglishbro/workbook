@@ -97,16 +97,57 @@
         "minWords":  220
     },
     {
-    "id": "cambridge-r1",
-    "type": "cambridge",
-    "skill": "reading",
-    "task": 1,
-    "title": "Comprensión lectora: hábitos de estudio",
-    "question": "Observa el texto de la imagen y responde.",
+        "id":  "cambridge-r1",
+        "type":  "cambridge",
+        "skill":  "reading",
+        "task":  1,
+        "title":  "Comprensión lectora: hábitos de estudio",
+        "question":  "Observa el texto de la imagen y responde.",
         "imageUrl":  "https://i.ibb.co/DfcRsb39/Gemini-Generated-Image-ms9uzhms9uzhms9u.png",
-    "questions": [
-      { "id": "q1", "prompt": "¿Cuál es el propósito principal del texto?", "options": ["Informar", "Persuadir", "Entretener", "Instruir"], "answer": 0 },
-      { "id": "q2", "prompt": "Menciona una ventaja clave destacada.", "answer": "claridad" }
-    ]
+        "questions":  [
+                          {
+                              "id":  "q1",
+                              "prompt":  "¿Cuál es el propósito principal del texto?",
+                              "options":  [
+                                              "Informar",
+                                              "Persuadir",
+                                              "Entretener",
+                                              "Instruir"
+                                          ],
+                              "answer":  0
+                          },
+                          {
+                              "id":  "q2",
+                              "prompt":  "Menciona una ventaja clave destacada.",
+                              "answer":  "claridad"
+                          }
+                      ]
+    },
+    {
+        "id":  "cambridge-l1",
+        "type":  "cambridge",
+        "skill":  "listening",
+        "task":  1,
+        "title":  "Listening: video announcement",
+        "question":  "Mira el video y responde las preguntas.",
+        "videoUrl":  "https://www.youtube.com/watch?v=5qap5aO4i9A",
+        "questions":  [
+                          {
+                              "answer":  0,
+                              "prompt":  "¿Cuál es el tema principal del video?",
+                              "id":  "q1",
+                              "options":  [
+                                              "Música",
+                                              "Noticias",
+                                              "Deportes",
+                                              "Comedia"
+                                          ]
+                          },
+                          {
+                              "prompt":  "Escribe una palabra clave mencionada.",
+                              "id":  "q2",
+                              "answer":  "live"
+                          }
+                      ]
     }
 ]
