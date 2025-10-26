@@ -1,0 +1,27 @@
+﻿{
+    "id":  "celpip-r1",
+    "type":  "celpip",
+    "skill":  "reading",
+    "task":  1,
+    "title":  "Reading: servicios comunitarios",
+    "question":  "Lee el aviso en la imagen y responde.",
+    "imageUrl":  "https://images.unsplash.com/photo-1496302662116-35cc4f36df92?w=1200",
+    "questions":  [
+                      {
+                          "id":  "q1",
+                          "prompt":  "Â¿QuÃ© tipo de servicio se anuncia?",
+                          "answer":  "reciclaje"
+                      },
+                      {
+                          "id":  "q2",
+                          "prompt":  "Â¿CuÃ¡ndo se realiza?",
+                          "options":  [
+                                          "Lunes",
+                                          "MiÃ©rcoles",
+                                          "SÃ¡bado",
+                                          "Domingo"
+                                      ],
+                          "answer":  2
+                      }
+                  ]
+}

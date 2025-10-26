@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+﻿import React, { useEffect, useRef, useState } from 'react'
 
 export default function WritingPanel({ filePrefix = 'writing', limitSec = 0, targetWords = 0, minWords = 0 }) {
   const [text, setText] = useState('')
@@ -67,19 +67,19 @@ export default function WritingPanel({ filePrefix = 'writing', limitSec = 0, tar
     <div className="space-y-3">
       <div className="flex items-center gap-2">
         {!running ? (
-          <button className="btn-primary-tw" onClick={start}>Iniciar</button>
+          <button className="btn-primary-tw" onClick={start}>Start</button>
         ) : (
-          <button className="btn-ghost-tw" onClick={stop}>Detener</button>
+          <button className="btn-ghost-tw" onClick={stop}>Stop</button>
         )}
-        <button className="btn-ghost-tw" onClick={reset} disabled={running}>Reiniciar</button>
+        <button className="btn-ghost-tw" onClick={reset} disabled={running}>ReStart</button>
         <span className={`chip-tw ${running ? 'ring-1 ring-amber-400' : ''}`}>{formatTime(elapsed)}{limitSec ? ` / ${formatTime(limitSec)}` : ''}</span>
         <div className="ml-auto flex items-center gap-2 text-slate-300">
           <span className="font-bold text-amber-300">{wc}</span>
-          <span>palabras</span>
+          <span>words</span>
           {minWords ? <span className={`chip-tw ${meetsMin ? 'ring-1 ring-emerald-400' : ''}`}>min {minWords}</span> : null}
-          {targetWords ? <span className={`chip-tw ${nearTarget ? 'ring-1 ring-amber-400' : ''}`}>objetivo {targetWords}</span> : null}
+          {targetWords ? <span className={`chip-tw ${nearTarget ? 'ring-1 ring-amber-400' : ''}`}>target {targetWords}</span> : null}
         </div>
-        <button className="btn-ghost-tw" onClick={downloadTxt} disabled={!text}>Descargar</button>
+        <button className="btn-ghost-tw" onClick={downloadTxt} disabled={!text}>Download</button>
       </div>
       {(limitSec || minWords || targetWords) && (
         <div className="grid gap-2">
@@ -93,7 +93,7 @@ export default function WritingPanel({ filePrefix = 'writing', limitSec = 0, tar
       )}
       <textarea
         className="w-full min-h-[220px] resize-y p-4 rounded-2xl border border-slate-800 bg-slate-900/60 shadow-xl text-slate-100"
-        placeholder="Escribe tu respuesta aquí..."
+        placeholder="Write your answer here..."
         value={text}
         onChange={(e) => setText(e.target.value)}
         disabled={limitSec && !running && elapsed >= limitSec}
@@ -101,3 +101,4 @@ export default function WritingPanel({ filePrefix = 'writing', limitSec = 0, tar
     </div>
   )
 }
+

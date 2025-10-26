@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+﻿import React, { useMemo, useState } from 'react'
 
 function extractYouTubeId(urlOrId = '') {
   if (!urlOrId) return ''
@@ -85,13 +85,13 @@ export default function ListeningQuiz({ videoUrl, youtubeId, questions = [], tit
                 <input
                   type="text"
                   className={`w-full p-2 rounded-lg border ${checked ? (ok ? 'border-emerald-500' : 'border-rose-500') : 'border-slate-800'} bg-slate-900 text-slate-100`}
-                  placeholder="Escribe tu respuesta"
+                  placeholder="Type your answer"
                   value={user || ''}
                   onChange={(e) => setAnswer(q.id, e.target.value)}
                 />
               )}
               {checked && ok === false && q.explanation ? (
-                <div className="text-slate-300 text-sm mt-2">Sugerencia: {q.explanation}</div>
+                <div className="text-slate-300 text-sm mt-2">Hint: {q.explanation}</div>
               ) : null}
             </li>
           )
@@ -100,15 +100,16 @@ export default function ListeningQuiz({ videoUrl, youtubeId, questions = [], tit
 
       <div className="flex items-center gap-2">
         {!checked ? (
-          <button className="btn-ghost-tw" onClick={() => setChecked(true)} disabled={!normalized.length}>Verificar respuestas</button>
+          <button className="btn-ghost-tw" onClick={() => setChecked(true)} disabled={!normalized.length}>Check answers</button>
         ) : (
           <>
-            <button className="btn-ghost-tw" onClick={reset}>Reiniciar</button>
-            <span className="chip-tw">Puntuación: {results?.score ?? 0} / {results?.total ?? normalized.length}</span>
+            <button className="btn-ghost-tw" onClick={reset}>Reset</button>
+            <span className="chip-tw">PuntuaciÃ³n: {results?.score ?? 0} / {results?.total ?? normalized.length}</span>
           </>
         )}
       </div>
     </div>
   )
 }
+
 

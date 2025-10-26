@@ -22,7 +22,7 @@ export default function Accordion({ items, onSelect }) {
     })
   }
 
-  if (!items?.length) return <p className="text-slate-400">No hay ejercicios disponibles.</p>
+  if (!items?.length) return <p className="text-slate-400">No exercises available.</p>
 
   return (
     <div className="space-y-3">
@@ -38,7 +38,7 @@ export default function Accordion({ items, onSelect }) {
               id={`header-${task}`}
             >
               <div className="font-bold">Task {task}</div>
-              <span className="text-slate-300 text-sm">{list.length} ejercicios</span>
+              <span className="text-slate-300 text-sm">{list.length} exercises</span>
               <span className={`transition ${isOpen ? 'rotate-180' : ''}`} aria-hidden>▾</span>
             </button>
             {isOpen && (
@@ -49,9 +49,9 @@ export default function Accordion({ items, onSelect }) {
                       <button
                         className="w-full text-left card px-3 py-3 hover:-translate-y-0.5 transition"
                         onClick={() => onSelect?.(ex)}
-                        title="Abrir ejercicio"
+                        title="Open exercise"
                       >
-                        <span className="block font-semibold">{ex.title || ex.question || 'Ejercicio'}</span>
+                        <span className="block font-semibold">{ex.title || ex.question || 'Exercise'}</span>
                         {(ex.question || ex.subtitle) && (
                           <span className="block text-slate-400 text-sm mt-0.5">{ex.subtitle || ex.question}</span>
                         )}
@@ -67,4 +67,3 @@ export default function Accordion({ items, onSelect }) {
     </div>
   )
 }
-

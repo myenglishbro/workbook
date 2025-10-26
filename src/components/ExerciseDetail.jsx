@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+﻿import React, { useEffect, useState } from 'react'
 import Recorder from './Recorder.jsx'
 import WritingPanel from './WritingPanel.jsx'
 import ReadingQuiz from './ReadingQuiz.jsx'
@@ -41,7 +41,7 @@ export default function ExerciseDetail({ exercise, onBack }) {
         <h2 className="mb-1">{title || question}</h2>
         <p className="text-slate-300 text-sm m-0">{question}</p>
         <div className="mt-3">
-          <button className="btn-ghost-tw" onClick={onBack}>Volver al listado</button>
+          <button className="btn-ghost-tw" onClick={onBack}>Back to list</button>
         </div>
       </div>
 
@@ -51,14 +51,14 @@ export default function ExerciseDetail({ exercise, onBack }) {
           <div>
             <img
               src={imageUrl}
-              alt="Imagen del ejercicio"
+              alt="Exercise image"
               className="w-full max-h-72 object-cover rounded-2xl border border-slate-800 cursor-zoom-in shadow-md hover:scale-[1.01] transition-transform duration-300"
               onClick={() => setZoomOpen(true)}
               loading="lazy"
             />
             {zoomOpen && (
               <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center" onClick={() => setZoomOpen(false)} role="dialog" aria-modal="true">
-                <img src={imageUrl} alt="Imagen ampliada" className="max-w-[90vw] max-h-[85vh] rounded-2xl shadow-2xl cursor-zoom-out" />
+                <img src={imageUrl} alt="Zoomed image" className="max-w-[90vw] max-h-[85vh] rounded-2xl shadow-2xl cursor-zoom-out" />
               </div>
             )}
           </div>
@@ -66,20 +66,20 @@ export default function ExerciseDetail({ exercise, onBack }) {
 
         {verbs?.length ? (
           <div className="text-slate-300">
-            <strong className="text-slate-100">Verbos sugeridos:</strong> <span>{verbs.join(', ')}</span>
+            <strong className="text-slate-100">Suggested verbs:</strong> <span>{verbs.join(', ')}</span>
           </div>
         ) : null}
 
         {examples?.length ? (
           <div>
-            <strong>Ejemplos:</strong>
+            <strong>Examples:</strong>
             <ul className="list-disc pl-5 mt-2 text-slate-300">
               {examples.slice(0, 3).map((ej, idx) => (<li key={idx}>{ej}</li>))}
             </ul>
           </div>
         ) : null}
 
-        {/* Cuerpo según skill */}
+        {/* Body by skill */}
         {skill === 'writing' ? (
           <div>
             <WritingPanel filePrefix={`${id || type}-writing`} limitSec={timeLimitSec} targetWords={targetWords} minWords={minWords} />
@@ -101,4 +101,5 @@ export default function ExerciseDetail({ exercise, onBack }) {
     </div>
   )
 }
+
 

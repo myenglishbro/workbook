@@ -1,0 +1,67 @@
+﻿[
+    {
+        "id":  "cambridge-1",
+        "type":  "cambridge",
+        "skill":  "speaking",
+        "task":  1,
+        "title":  "Trabajo remoto vs oficina",
+        "question":  "Compara dos fotos de personas trabajando desde casa y en oficina.",
+        "imageUrl":  "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200",
+        "verbs":  [
+                      "compare",
+                      "contrast",
+                      "prefer",
+                      "highlight",
+                      "suggest"
+                  ],
+        "examples":  [
+                         "En casa hay comodidad y flexibilidad, pero puede haber distracciones.",
+                         "La oficina favorece la colaboraciÃ³n y una rutina mÃ¡s clara.",
+                         "Personalmente prefiero alternar segÃºn las tareas de la semana."
+                     ],
+        "timeLimitSec":  60
+    },
+    {
+        "id":  "cambridge-2",
+        "type":  "cambridge",
+        "skill":  "speaking",
+        "task":  2,
+        "title":  "Evento cultural local",
+        "question":  "Describe un evento cultural en tu ciudad y su impacto.",
+        "verbs":  [
+                      "describe",
+                      "attract",
+                      "promote",
+                      "celebrate",
+                      "influence"
+                  ],
+        "examples":  [
+                         "Cada aÃ±o celebramos un festival gastronÃ³mico con mÃºsica local.",
+                         "Atrae visitantes, promueve negocios y une a la comunidad.",
+                         "Influye positivamente en la identidad y el turismo."
+                     ],
+        "timeLimitSec":  60
+    },
+    {
+        "id":  "cambridge-3",
+        "type":  "cambridge",
+        "skill":  "speaking",
+        "task":  2,
+        "title":  "Sustainable tourism",
+        "question":  "Propose ideas to foster more sustainable tourism in your region.",
+        "imageUrl":  "https://i.ibb.co/DfcRsb39/Gemini-Generated-Image-ms9uzhms9uzhms9u.png",
+        "verbs":  [
+                      "propose",
+                      "reduce",
+                      "educate",
+                      "protect",
+                      "encourage"
+                  ],
+        "examples":  [
+                         "Promote public transport and bike routes for visitors.",
+                         "Educate visitors about waste and protecting nature.",
+                         "Encourage stays with responsible practices."
+                     ],
+        "timeLimitSec":  60
+    }
+]

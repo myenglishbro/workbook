@@ -1,0 +1,34 @@
+﻿[
+    {
+        "id":  "ielts-w1",
+        "type":  "ielts",
+        "skill":  "writing",
+        "task":  1,
+        "title":  "Informe de grÃ¡fico (Task 1)",
+        "question":  "Resume la informaciÃ³n principal del grÃ¡fico adjunto.",
+        "examples":  [
+                         "Describe tendencias generales primero, luego detalles relevantes.",
+                         "Compara categorÃ­as y menciona cambios significativos.",
+                         "Evita opiniones personales; reporta datos."
+                     ],
+        "timeLimitSec":  1200,
+        "targetWords":  150,
+        "minWords":  150
+    },
+    {
+        "id":  "ielts-w2",
+        "type":  "ielts",
+        "skill":  "writing",
+        "task":  2,
+        "title":  "Ensayo argumentativo (Task 2)",
+        "question":  "Escribe un ensayo que discuta ambas posturas y tu opiniÃ³n.",
+        "examples":  [
+                         "Introduce el tema y tu tesis.",
+                         "Desarrolla argumentos con ejemplos claros.",
+                         "Concluye resumiendo y reforzando tu postura."
+                     ],
+        "timeLimitSec":  2400,
+        "targetWords":  250,
+        "minWords":  250
+    }
+]

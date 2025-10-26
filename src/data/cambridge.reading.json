@@ -1,0 +1,27 @@
+﻿{
+    "id":  "cambridge-r1",
+    "type":  "cambridge",
+    "skill":  "reading",
+    "task":  1,
+    "title":  "Comprensión lectora: hábitos de estudio",
+    "question":  "Observa el texto de la imagen y responde.",
+    "imageUrl":  "https://i.ibb.co/DfcRsb39/Gemini-Generated-Image-ms9uzhms9uzhms9u.png",
+    "questions":  [
+                      {
+                          "id":  "q1",
+                          "prompt":  "¿Cuál es el propósito principal del texto?",
+                          "options":  [
+                                          "Informar",
+                                          "Persuadir",
+                                          "Entretener",
+                                          "Instruir"
+                                      ],
+                          "answer":  0
+                      },
+                      {
+                          "id":  "q2",
+                          "prompt":  "Menciona una ventaja clave destacada.",
+                          "answer":  "claridad"
+                      }
+                  ]
+}

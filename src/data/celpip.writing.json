@@ -1,0 +1,34 @@
+﻿[
+    {
+        "id":  "celpip-w1",
+        "type":  "celpip",
+        "skill":  "writing",
+        "task":  1,
+        "title":  "Correo formal",
+        "question":  "Escribe un correo formal para solicitar informaciÃ³n.",
+        "examples":  [
+                         "Saludo apropiado",
+                         "Cuerpo con solicitud clara",
+                         "Cierre cordial"
+                     ],
+        "timeLimitSec":  1200,
+        "targetWords":  180,
+        "minWords":  150
+    },
+    {
+        "id":  "celpip-w2",
+        "type":  "celpip",
+        "skill":  "writing",
+        "task":  2,
+        "title":  "OpiniÃ³n justificada",
+        "question":  "Expresa tu opiniÃ³n sobre una polÃ­tica local y justifÃ­cala.",
+        "examples":  [
+                         "Introduce el tema",
+                         "Argumentos con ejemplos",
+                         "ConclusiÃ³n clara"
+                     ],
+        "timeLimitSec":  1800,
+        "targetWords":  250,
+        "minWords":  200
+    }
+]

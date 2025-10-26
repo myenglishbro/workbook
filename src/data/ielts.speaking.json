@@ -1,0 +1,88 @@
+﻿[
+    {
+        "id":  "ielts-1",
+        "type":  "ielts",
+        "skill":  "speaking",
+        "task":  1,
+        "title":  "Libro que te influyÃ³",
+        "question":  "Describe un libro que haya cambiado tu manera de pensar.",
+        "imageUrl":  "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200",
+        "verbs":  [
+                      "influence",
+                      "change",
+                      "realize",
+                      "reflect",
+                      "recommend"
+                  ],
+        "examples":  [
+                         "LeÃ­ un libro sobre hÃ¡bitos que me ayudÃ³ a ser constante.",
+                         "Me hizo reflexionar sobre metas pequeÃ±as y medibles.",
+                         "Lo recomiendo porque ofrece ideas prÃ¡cticas y claras."
+                     ],
+        "timeLimitSec":  120
+    },
+    {
+        "id":  "ielts-2",
+        "type":  "ielts",
+        "skill":  "speaking",
+        "task":  1,
+        "title":  "Lugar tranquilo para estudiar",
+        "question":  "Habla de un lugar tranquilo donde te gusta estudiar o trabajar.",
+        "verbs":  [
+                      "prefer",
+                      "focus",
+                      "reduce",
+                      "improve",
+                      "choose"
+                  ],
+        "examples":  [
+                         "Prefiero una biblioteca pequeÃ±a: silenciosa y bien iluminada.",
+                         "Me ayuda a concentrarme y reducir distracciones.",
+                         "La elijo cuando necesito escribir o preparar presentaciones."
+                     ],
+        "timeLimitSec":  120
+    },
+    {
+        "id":  "ielts-3",
+        "type":  "ielts",
+        "skill":  "speaking",
+        "task":  2,
+        "title":  "TecnologÃ­a Ãºtil diaria",
+        "question":  "Describe una tecnologÃ­a que uses a diario y por quÃ© es Ãºtil.",
+        "verbs":  [
+                      "use",
+                      "help",
+                      "organize",
+                      "improve",
+                      "communicate"
+                  ],
+        "examples":  [
+                         "Uso una app de notas para organizar mis tareas.",
+                         "Me ayuda a priorizar y no olvidar plazos.",
+                         "La recomiendo porque sincroniza entre dispositivos."
+                     ],
+        "timeLimitSec":  120
+    },
+    {
+        "id":  "ielts-4",
+        "type":  "ielts",
+        "skill":  "speaking",
+        "task":  2,
+        "title":  "Healthy habits",
+        "question":  "Suggest daily habits to improve health and productivity.",
+        "imageUrl":  "https://images.unsplash.com/photo-1514511547113-bfb3d9f75f1c?w=1200",
+        "verbs":  [
+                      "suggest",
+                      "improve",
+                      "build",
+                      "avoid",
+                      "maintain"
+                  ],
+        "examples":  [
+                         "Dormir bien y mantener horarios consistentes.",
+                         "Planificar comidas y tomar descansos breves.",
+                         "Evitar distracciones y moverse cada hora."
+                     ],
+        "timeLimitSec":  120
+    }
+]

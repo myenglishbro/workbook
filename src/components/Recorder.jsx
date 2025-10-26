@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState, useMemo } from "react";
+﻿import React, { useEffect, useRef, useState, useMemo } from "react";
 
 export default function RecorderPro({
-  // Por defecto NO mostramos nada en la izquierda a menos que envíes contenido
+  // Left column shows nothing unless you pass content
   title = "",
   instructions = "",
-  filePrefix = "grabacion",
+  filePrefix = "recording",
   limitSec = 0,
   sttDefaultLang = typeof window !== "undefined" ? (navigator.language || "es-ES") : "es-ES",
 }) {
@@ -126,7 +126,7 @@ export default function RecorderPro({
       startSTT();
     } catch (e) {
       console.error(e);
-      setError("No se pudo acceder al micrófono. Revisa permisos del navegador.");
+      setError("Could not access the microphone. Check browser permissions.");
       setRecording(false);
       stopTimer();
       stopStream(stream);
@@ -172,7 +172,7 @@ export default function RecorderPro({
 
   return (
     <div className={`w-full grid ${showLeft ? "grid-cols-1 md:grid-cols-2" : "grid-cols-1"} gap-4 md:gap-6`}>
-      {/* Izquierda: SOLO si envías contenido */}
+      {/* Izquierda: SOLO si envÃ­as contenido */}
       {showLeft && (
         <section className="rounded-2xl border border-slate-800 bg-slate-900/50 p-4 md:p-6 shadow">
           {/* Sin textos de relleno */}
@@ -191,16 +191,16 @@ export default function RecorderPro({
         </section>
       )}
 
-      {/* Derecha: panel de grabación */}
+      {/* Derecha: panel de grabaciÃ³n */}
       <section className="rounded-2xl border border-slate-800 bg-slate-900/50 p-4 md:p-6 shadow flex flex-col gap-4">
         <div className="flex flex-wrap items-center gap-2">
           {!recording ? (
             <button className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold shadow" onClick={startRecording}>
-              ● Grabar
+              â— Record
             </button>
           ) : (
             <button className="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-semibold shadow" onClick={stopRecording}>
-              ■ Detener
+              â–  Stop
             </button>
           )}
 
@@ -218,13 +218,13 @@ export default function RecorderPro({
           )}
 
           <div className="ml-auto flex items-center gap-2">
-            <label className="text-slate-300 text-sm">Idioma STT</label>
+            <label className="text-slate-300 text-sm">STT language</label>
             <select
               className="bg-slate-900 border border-slate-700 text-slate-100 text-sm rounded-lg px-2 py-1"
               value={recLang}
               onChange={(e) => setRecLang(e.target.value)}
               disabled={recording}
-              title="Idioma del reconocimiento de voz"
+              title="Speech recognition language"
             >
               <option value="es-ES">es-ES</option>
               <option value="en-US">en-US</option>
@@ -236,7 +236,7 @@ export default function RecorderPro({
 
             <label className="inline-flex items-center gap-2 text-slate-300 text-sm">
               <input type="checkbox" className="accent-emerald-500" checked={sttEnabled} onChange={(e) => setSttEnabled(e.target.checked)} disabled={recording} />
-              STT activo
+              STT enabled
             </label>
           </div>
         </div>
@@ -253,7 +253,7 @@ export default function RecorderPro({
         )}
 
         <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-3">
-          <div className="text-slate-400 text-xs mb-2">Transcripción (en vivo)</div>
+          <div className="text-slate-400 text-xs mb-2">Live transcription</div>
           <div className="space-y-2">
             <div className="text-slate-100 text-sm leading-relaxed">
               {transcriptFinal}
@@ -262,20 +262,21 @@ export default function RecorderPro({
 
             <div className="flex flex-wrap gap-2 pt-2">
               <button className="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-100 text-sm disabled:opacity-50" onClick={copyTranscript} disabled={!transcriptFinal && !transcriptInterim}>
-                Copiar texto
+                Copy text
               </button>
               <button className="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-100 text-sm disabled:opacity-50" onClick={downloadTranscript} disabled={!transcriptFinal && !transcriptInterim}>
-                Guardar TXT
+                Download TXT
               </button>
-              <button className="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-100 text-sm" onClick={() => { setTranscriptFinal(""); setTranscriptInterim(""); }} title="Limpiar transcripción">
-                Limpiar
+              <button className="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-100 text-sm" onClick={() => { setTranscriptFinal(""); setTranscriptInterim(""); }} title="Clear transcripciÃ³n">
+                Clear
               </button>
             </div>
           </div>
         </div>
 
-        <p className="text-xs text-slate-500">Nota: El reconocimiento de voz depende del soporte del navegador (Chrome recomendado).</p>
+        <p className="text-xs text-slate-500">Note: Speech recognition depends on browser support (Chrome recommended).</p>
       </section>
     </div>
   );
 }
+

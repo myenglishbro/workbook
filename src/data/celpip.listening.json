@@ -1,0 +1,27 @@
+﻿{
+    "id":  "celpip-l1",
+    "type":  "celpip",
+    "skill":  "listening",
+    "task":  1,
+    "title":  "Listening: video announcement",
+    "question":  "Mira el video y responde las preguntas.",
+    "videoUrl":  "https://www.youtube.com/watch?v=5qap5aO4i9A",
+    "questions":  [
+                      {
+                          "answer":  0,
+                          "prompt":  "¿Cuál es el tema principal del video?",
+                          "id":  "q1",
+                          "options":  [
+                                          "Música",
+                                          "Noticias",
+                                          "Deportes",
+                                          "Comedia"
+                                      ]
+                      },
+                      {
+                          "prompt":  "Escribe una palabra clave mencionada.",
+                          "id":  "q2",
+                          "answer":  "live"
+                      }
+                  ]
+}

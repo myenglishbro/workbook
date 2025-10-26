@@ -1,4 +1,4 @@
-import React from 'react'
+﻿import React from 'react'
 import Recorder from './Recorder.jsx'
 
 export default function ExerciseCard({ exercise }) {
@@ -10,7 +10,7 @@ export default function ExerciseCard({ exercise }) {
     examples = [],
     verbs = [],
     timeLimitSec,
-    imageUrl, // 👈 importante
+    imageUrl, // ðŸ‘ˆ importante
     title,
   } = exercise
 
@@ -22,7 +22,7 @@ export default function ExerciseCard({ exercise }) {
         <h3 className="question">{title || question}</h3>
       </header>
 
-      {/* 👇 NUEVO: Mostrar imagen si existe */}
+      {/* ðŸ‘‡ NUEVO: Mostrar imagen si existe */}
       {imageUrl ? (
         <figure className="my-3">
           <img
@@ -40,14 +40,14 @@ export default function ExerciseCard({ exercise }) {
 
       {verbs?.length ? (
         <div className="verbs">
-          <strong>Verbos sugeridos:</strong>
+          <strong>Suggested verbs:</strong>
           <span>{verbs.join(', ')}</span>
         </div>
       ) : null}
 
       {examples?.length ? (
         <div className="examples">
-          <strong>Ejemplos (3):</strong>
+          <strong>Examples (3):</strong>
           <ul>
             {examples.slice(0, 3).map((ej, idx) => (
               <li key={idx}>{ej}</li>
@@ -56,8 +56,9 @@ export default function ExerciseCard({ exercise }) {
         </div>
       ) : null}
 
-      {/* 🔊 Grabadora */}
+      {/* ðŸ”Š Grabadora */}
       <Recorder filePrefix={`${id || type}-respuesta`} limitSec={timeLimitSec} />
     </article>
   )
 }
+

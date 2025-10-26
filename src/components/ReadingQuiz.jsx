@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+﻿import React, { useMemo, useState } from 'react'
 
 export default function ReadingQuiz({
   imageUrl,
@@ -50,12 +50,12 @@ export default function ReadingQuiz({
 
   return (
     <div className="space-y-6">
-      {/* Imagen única (agrandada) con zoom */}
+      {/* Imagen Ãºnica (agrandada) con zoom */}
       {imageUrl ? (
         <div className="relative group">
           <img
             src={imageUrl}
-            alt="Texto de lectura"
+            alt="Reading text"
             className="w-full rounded-2xl border border-slate-800 shadow-lg max-h-[500px] object-contain bg-slate-950 cursor-zoom-in transition-transform duration-300 group-hover:scale-[1.02]"
             onClick={() => setZoomOpen(true)}
             loading="lazy"
@@ -134,7 +134,7 @@ export default function ReadingQuiz({
                         : 'border-rose-500 bg-rose-900/20'
                       : 'border-slate-700 bg-slate-900 hover:bg-slate-800/60'
                   } text-slate-100 placeholder-slate-500`}
-                  placeholder="Escribe tu respuesta"
+                  placeholder="Type your answer"
                   value={user || ''}
                   onChange={(e) => setAnswer(q.id, e.target.value)}
                 />
@@ -142,7 +142,7 @@ export default function ReadingQuiz({
 
               {checked && ok === false && q.explanation ? (
                 <div className="text-slate-300 text-sm mt-2 italic">
-                  💡 <span className="text-slate-400">Sugerencia:</span> {q.explanation}
+                  ðŸ’¡ <span className="text-slate-400">Hint:</span> {q.explanation}
                 </div>
               ) : null}
             </li>
@@ -158,7 +158,7 @@ export default function ReadingQuiz({
             onClick={() => setChecked(true)}
             disabled={!normalized.length}
           >
-            Verificar respuestas
+            Check answers
           </button>
         ) : (
           <>
@@ -166,10 +166,10 @@ export default function ReadingQuiz({
               className="btn-ghost-tw border border-slate-600 hover:bg-slate-800 text-slate-200"
               onClick={reset}
             >
-              Reiniciar
+              Reset
             </button>
             <span className="chip-tw bg-emerald-900/30 border border-emerald-600/50 text-emerald-300 font-semibold px-3 py-1 rounded-full">
-              Puntuación: {results?.score ?? 0} / {results?.total ?? normalized.length}
+              PuntuaciÃ³n: {results?.score ?? 0} / {results?.total ?? normalized.length}
             </span>
           </>
         )}
@@ -177,3 +177,4 @@ export default function ReadingQuiz({
     </div>
   )
 }
+

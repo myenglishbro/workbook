@@ -1,0 +1,34 @@
+﻿[
+    {
+        "id":  "cambridge-w1",
+        "type":  "cambridge",
+        "skill":  "writing",
+        "task":  1,
+        "title":  "Email a un amigo",
+        "question":  "Escribe un email informal invitando a un amigo a un plan.",
+        "examples":  [
+                         "Saludo cercano",
+                         "Detalles del plan",
+                         "Cierre amistoso"
+                     ],
+        "timeLimitSec":  900,
+        "targetWords":  140,
+        "minWords":  120
+    },
+    {
+        "id":  "cambridge-w2",
+        "type":  "cambridge",
+        "skill":  "writing",
+        "task":  2,
+        "title":  "ArtÃ­culo de opiniÃ³n",
+        "question":  "Escribe un artÃ­culo expresando tu opiniÃ³n con razones y ejemplos.",
+        "examples":  [
+                         "IntroducciÃ³n",
+                         "Dos o tres pÃ¡rrafos principales",
+                         "ConclusiÃ³n"
+                     ],
+        "timeLimitSec":  2100,
+        "targetWords":  260,
+        "minWords":  220
+    }
+]
