@@ -158,7 +158,7 @@ export default function App() {
           </div>
 
           <button className="btn-ghost-tw" onClick={() => setScreen('splash')}>
-            MenÃº principal
+            Menu principal
           </button>
         </div>
       </header>

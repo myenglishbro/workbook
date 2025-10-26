@@ -20,8 +20,14 @@
                       },
                       {
                           "id":  "q2",
-                          "prompt":  "Which building hosts it?",
-                          "answer":  "hall"
+                          "prompt":  "What is the main sssss about?",
+                          "options":  [
+                                          "Library hours",
+                                          "Exam schedule",
+                                          "Worskshop",
+                                          "Holiday"
+                                      ],
+                          "answer":  3
                       }
                   ]
 }
