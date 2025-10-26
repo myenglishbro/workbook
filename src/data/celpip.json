@@ -1,0 +1,72 @@
+[
+  {
+    "id": "celpip-1",
+    "type": "celpip",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Parque favorito",
+    "question": "Describe un parque que visitas a menudo y por qué te gusta.",
+    "verbs": ["describe", "visit", "enjoy", "relax", "located"],
+    "examples": [
+      "Suelo visitar un parque cerca de mi casa porque es tranquilo y amplio.",
+      "Me gusta ir por la mañana; el aire fresco me ayuda a concentrarme.",
+      "Está ubicado a diez minutos; allí camino, leo y despejo la mente."
+    ],
+    "timeLimitSec": 90
+  },
+  {
+    "id": "celpip-2",
+    "type": "celpip",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Decisión difícil",
+    "question": "Habla de una decisión difícil que tomaste recientemente.",
+    "verbs": ["decide", "consider", "choose", "explain", "affect"],
+    "examples": [
+      "Tuve que decidir cambiar de trabajo para crecer profesionalmente.",
+      "Consideré los pros y contras, especialmente el equilibrio con mi familia.",
+      "Finalmente elegí el nuevo puesto porque ofrece aprendizaje continuo."
+    ],
+    "timeLimitSec": 90
+  
+  },
+  {
+    "id": "celpip-3",
+    "type": "celpip",
+    "skill": "speaking",
+    "task": 2,
+    "title": "Recomendación a un amigo",
+    "question": "Recomienda un lugar para visitar a un amigo que llega a tu ciudad.",
+    "verbs": ["recommend", "suggest", "visit", "enjoy", "experience"],
+    "examples": [
+      "Te recomiendo el centro histórico por su arquitectura.",
+      "Hay cafés y museos que muestran la cultura local.",
+      "Es fácil llegar en transporte público."
+    ],
+    "timeLimitSec": 90
+  },
+  {
+    "id": "celpip-w1",
+    "type": "celpip",
+    "skill": "writing",
+    "task": 1,
+    "title": "Correo formal",
+    "question": "Escribe un correo formal para solicitar información.",
+    "examples": ["Saludo apropiado", "Cuerpo con solicitud clara", "Cierre cordial"],
+    "timeLimitSec": 1200,
+    "targetWords": 180,
+    "minWords": 150
+  },
+  {
+    "id": "celpip-w2",
+    "type": "celpip",
+    "skill": "writing",
+    "task": 2,
+    "title": "Opinión justificada",
+    "question": "Expresa tu opinión sobre una política local y justifícala.",
+    "examples": ["Introduce el tema", "Argumentos con ejemplos", "Conclusión clara"],
+    "timeLimitSec": 1800,
+    "targetWords": 250,
+    "minWords": 200
+  }
+]

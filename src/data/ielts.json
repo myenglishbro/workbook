@@ -1,0 +1,79 @@
+[
+  {
+    "id": "ielts-1",
+    "type": "ielts",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Libro que te influyó",
+    "question": "Describe un libro que haya cambiado tu manera de pensar.",
+    "verbs": ["influence", "change", "realize", "reflect", "recommend"],
+    "examples": [
+      "Leí un libro sobre hábitos que me ayudó a ser constante.",
+      "Me hizo reflexionar sobre metas pequeñas y medibles.",
+      "Lo recomiendo porque ofrece ideas prácticas y claras."
+    ],
+    "timeLimitSec": 120
+  },
+  {
+    "id": "ielts-2",
+    "type": "ielts",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Lugar tranquilo para estudiar",
+    "question": "Habla de un lugar tranquilo donde te gusta estudiar o trabajar.",
+    "verbs": ["prefer", "focus", "reduce", "improve", "choose"],
+    "examples": [
+      "Prefiero una biblioteca pequeña: silenciosa y bien iluminada.",
+      "Me ayuda a concentrarme y reducir distracciones.",
+      "La elijo cuando necesito escribir o preparar presentaciones."
+    ],
+    "timeLimitSec": 120
+  },
+  {
+    "id": "ielts-3",
+    "type": "ielts",
+    "skill": "speaking",
+    "task": 2,
+    "title": "Tecnología útil diaria",
+    "question": "Describe una tecnología que uses a diario y por qué es útil.",
+    "verbs": ["use", "help", "organize", "improve", "communicate"],
+    "examples": [
+      "Uso una app de notas para organizar mis tareas.",
+      "Me ayuda a priorizar y no olvidar plazos.",
+      "La recomiendo porque sincroniza entre dispositivos."
+    ],
+    "timeLimitSec": 120
+  },
+  {
+    "id": "ielts-w1",
+    "type": "ielts",
+    "skill": "writing",
+    "task": 1,
+    "title": "Informe de gráfico (Task 1)",
+    "question": "Resume la información principal del gráfico adjunto.",
+    "examples": [
+      "Describe tendencias generales primero, luego detalles relevantes.",
+      "Compara categorías y menciona cambios significativos.",
+      "Evita opiniones personales; reporta datos."
+    ],
+    "timeLimitSec": 1200,
+    "targetWords": 150,
+    "minWords": 150
+  },
+  {
+    "id": "ielts-w2",
+    "type": "ielts",
+    "skill": "writing",
+    "task": 2,
+    "title": "Ensayo argumentativo (Task 2)",
+    "question": "Escribe un ensayo que discuta ambas posturas y tu opinión.",
+    "examples": [
+      "Introduce el tema y tu tesis.",
+      "Desarrolla argumentos con ejemplos claros.",
+      "Concluye resumiendo y reforzando tu postura."
+    ],
+    "timeLimitSec": 2400,
+    "targetWords": 250,
+    "minWords": 250
+  }
+]

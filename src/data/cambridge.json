@@ -1,0 +1,57 @@
+[
+  {
+    "id": "cambridge-1",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Trabajo remoto vs oficina",
+    "question": "Compara dos fotos de personas trabajando desde casa y en oficina.",
+    "verbs": ["compare", "contrast", "prefer", "highlight", "suggest"],
+    "examples": [
+      "En casa hay comodidad y flexibilidad, pero puede haber distracciones.",
+      "La oficina favorece la colaboración y una rutina más clara.",
+      "Personalmente prefiero alternar según las tareas de la semana."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-2",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 2,
+    "title": "Evento cultural local",
+    "question": "Describe un evento cultural en tu ciudad y su impacto.",
+    "verbs": ["describe", "attract", "promote", "celebrate", "influence"],
+    "examples": [
+      "Cada año celebramos un festival gastronómico con música local.",
+      "Atrae visitantes, promueve negocios y une a la comunidad.",
+      "Influye positivamente en la identidad y el turismo."
+    ],
+    "timeLimitSec": 60
+  },
+
+  {
+    "id": "cambridge-w1",
+    "type": "cambridge",
+    "skill": "writing",
+    "task": 1,
+    "title": "Email a un amigo",
+    "question": "Escribe un email informal invitando a un amigo a un plan.",
+    "examples": ["Saludo cercano", "Detalles del plan", "Cierre amistoso"],
+    "timeLimitSec": 900,
+    "targetWords": 140,
+    "minWords": 120
+  },
+  {
+    "id": "cambridge-w2",
+    "type": "cambridge",
+    "skill": "writing",
+    "task": 2,
+    "title": "Artículo de opinión",
+    "question": "Escribe un artículo expresando tu opinión con razones y ejemplos.",
+    "examples": ["Introducción", "Dos o tres párrafos principales", "Conclusión"],
+    "timeLimitSec": 2100,
+    "targetWords": 260,
+    "minWords": 220
+  }
+]
