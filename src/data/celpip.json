@@ -6,6 +6,7 @@
     "task": 1,
     "title": "Parque favorito",
     "question": "Describe un parque que visitas a menudo y por qué te gusta.",
+    "imageUrl": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200",
     "verbs": ["describe", "visit", "enjoy", "relax", "located"],
     "examples": [
       "Suelo visitar un parque cerca de mi casa porque es tranquilo y amplio.",
@@ -46,6 +47,22 @@
     "timeLimitSec": 90
   },
   {
+    "id": "celpip-4",
+    "type": "celpip",
+    "skill": "speaking",
+    "task": 2,
+    "title": "Plan de fin de semana",
+    "question": "Sugiere un plan de fin de semana para visitar la ciudad.",
+    "imageUrl": "https://i.ibb.co/DfcRsb39/Gemini-Generated-Image-ms9uzhms9uzhms9u.png",
+    "verbs": ["suggest", "plan", "enjoy", "explore", "arrive"],
+    "examples": [
+      "Explorar el centro y probar comida local.",
+      "Visitar parques y mercados al aire libre.",
+      "Terminar con un museo o concierto."
+    ],
+    "timeLimitSec": 90
+  },
+  {
     "id": "celpip-w1",
     "type": "celpip",
     "skill": "writing",
@@ -68,5 +85,18 @@
     "timeLimitSec": 1800,
     "targetWords": 250,
     "minWords": 200
+  },
+  {
+    "id": "celpip-r1",
+    "type": "celpip",
+    "skill": "reading",
+    "task": 1,
+    "title": "Reading: servicios comunitarios",
+    "question": "Lee el aviso en la imagen y responde.",
+    "imageUrl": "https://images.unsplash.com/photo-1496302662116-35cc4f36df92?w=1200",
+    "questions": [
+      { "id": "q1", "prompt": "¿Qué tipo de servicio se anuncia?", "answer": "reciclaje" },
+      { "id": "q2", "prompt": "¿Cuándo se realiza?", "options": ["Lunes", "Miércoles", "Sábado", "Domingo"], "answer": 2 }
+    ]
   }
 ]

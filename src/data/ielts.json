@@ -6,6 +6,7 @@
     "task": 1,
     "title": "Libro que te influyó",
     "question": "Describe un libro que haya cambiado tu manera de pensar.",
+    "imageUrl": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200",
     "verbs": ["influence", "change", "realize", "reflect", "recommend"],
     "examples": [
       "Leí un libro sobre hábitos que me ayudó a ser constante.",
@@ -45,6 +46,22 @@
     "timeLimitSec": 120
   },
   {
+    "id": "ielts-4",
+    "type": "ielts",
+    "skill": "speaking",
+    "task": 2,
+    "title": "Healthy habits",
+    "question": "Suggest daily habits to improve health and productivity.",
+    "imageUrl": "https://images.unsplash.com/photo-1514511547113-bfb3d9f75f1c?w=1200",
+    "verbs": ["suggest", "improve", "build", "avoid", "maintain"],
+    "examples": [
+      "Dormir bien y mantener horarios consistentes.",
+      "Planificar comidas y tomar descansos breves.",
+      "Evitar distracciones y moverse cada hora."
+    ],
+    "timeLimitSec": 120
+  },
+  {
     "id": "ielts-w1",
     "type": "ielts",
     "skill": "writing",
@@ -75,5 +92,18 @@
     "timeLimitSec": 2400,
     "targetWords": 250,
     "minWords": 250
+  },
+  {
+    "id": "ielts-r1",
+    "type": "ielts",
+    "skill": "reading",
+    "task": 1,
+    "title": "Reading: campus notice",
+    "question": "Observa el aviso del campus y contesta.",
+    "imageUrl": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=1200",
+    "questions": [
+      { "id": "q1", "prompt": "What is the main announcement about?", "options": ["Library hours", "Exam schedule", "Workshop", "Holiday"], "answer": 2 },
+      { "id": "q2", "prompt": "Which building hosts it?", "answer": "hall" }
+    ]
   }
 ]
