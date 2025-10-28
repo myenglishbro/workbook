@@ -1,0 +1,26 @@
+{
+  "id": "duolingo-t1",
+  "type": "duolingo",
+  "skill": "type",
+  "task": 1,
+  "title": "Type the missing word",
+  "question": "Complete each sentence by typing the missing word.",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "I usually drink a cup of ____ in the morning.",
+      "answer": "coffee"
+    },
+    {
+      "id": "q2",
+      "prompt": "They are waiting ____ the bus stop.",
+      "answer": "at"
+    },
+    {
+      "id": "q3",
+      "prompt": "Please turn ____ the lights before you leave.",
+      "answer": "off"
+    }
+  ]
+}
+

@@ -1,0 +1,49 @@
+[
+  {
+    "id": "duolingo-s1",
+    "type": "duolingo",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Describe the picture",
+    "question": "Describe the picture in detail. Include people, place, actions and feelings.",
+    "imageUrl": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200",
+    "verbs": ["describe", "observe", "explain", "suggest", "infer"],
+    "examples": [
+      "The scene shows a busy street market with colorful stalls.",
+      "People are buying fresh fruit and chatting with vendors.",
+      "It seems lively and friendly, perhaps on a sunny weekend."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "duolingo-s2",
+    "type": "duolingo",
+    "skill": "speaking",
+    "task": 2,
+    "title": "Express your opinion",
+    "question": "Do you think technology makes life easier or more complicated? Explain your view.",
+    "verbs": ["agree", "disagree", "argue", "support", "balance"],
+    "examples": [
+      "Technology simplifies tasks like navigation and communication.",
+      "However, constant notifications can be distracting and stressful.",
+      "Overall, it helps more than it hurts when used intentionally."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "duolingo-s3",
+    "type": "duolingo",
+    "skill": "speaking",
+    "task": 3,
+    "title": "Speak about a past experience",
+    "question": "Talk about a time when you learned something important outside school.",
+    "verbs": ["learn", "realize", "improve", "challenge", "reflect"],
+    "examples": [
+      "I learned basic cooking during a summer job.",
+      "It taught me responsibility and planning meals for others.",
+      "Now I feel more independent and confident."
+    ],
+    "timeLimitSec": 60
+  }
+]
+

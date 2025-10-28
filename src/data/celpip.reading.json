@@ -1,27 +1,76 @@
 ﻿{
-    "id":  "celpip-r1",
-    "type":  "celpip",
-    "skill":  "reading",
-    "task":  1,
-    "title":  "Reading: servicios comunitarios",
-    "question":  "Lee el aviso en la imagen y responde.",
-    "imageUrl":  "https://images.unsplash.com/photo-1496302662116-35cc4f36df92?w=1200",
-    "questions":  [
-                      {
-                          "id":  "q1",
-                          "prompt":  "Â¿QuÃ© tipo de servicio se anuncia?",
-                          "answer":  "reciclaje"
-                      },
-                      {
-                          "id":  "q2",
-                          "prompt":  "Â¿CuÃ¡ndo se realiza?",
-                          "options":  [
-                                          "Lunes",
-                                          "MiÃ©rcoles",
-                                          "SÃ¡bado",
-                                          "Domingo"
-                                      ],
-                          "answer":  2
-                      }
-                  ]
+  "id": "celpip-r1",
+  "type": "celpip",
+  "skill": "reading",
+  "task": 1,
+  "title": "Reading: Letters between Ryan and Charlie",
+  "imageUrl": "https://i.ibb.co/G4fyLnn8/task01-01.png",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Charlie is in Albania to ____.",
+      "options": ["A. work", "B. study", "C. travel", "D. start a business"],
+      "answer": 2
+    },
+    {
+      "id": "q2",
+      "prompt": "Charlie lives ____.",
+      "options": ["A. on campus", "B. off campus", "C. with a family", "D. with colleagues"],
+      "answer": 1
+    },
+    {
+      "id": "q3",
+      "prompt": "When did Ryan stop working at the bank?",
+      "options": ["A. two weeks ago", "B. yesterday", "C. he did not stop working at the bank", "D. unknown"],
+      "answer": 1
+    },
+    {
+      "id": "q4",
+      "prompt": "Ryan wanted more ____.",
+      "options": ["A. flexibility", "B. money", "C. opportunity", "D. free time"],
+      "answer": 1
+    },
+    {
+      "id": "q5",
+      "prompt": "Ryan thinks the job transition will be ____.",
+      "options": ["A. difficult", "B. easy", "C. stressful", "D. awkward"],
+      "answer": 4
+    },
+    {
+      "id": "q6",
+      "prompt": "Ryan’s new hobby will be ____.",
+      "options": ["A. snowboarding", "B. skiing", "C. skateboarding", "D. sledding"],
+      "answer": 1
+    },
+    {
+      "id": "q7",
+      "prompt": "Charlie says Ryan always knew a ____ job didn’t suit him.",
+      "options": ["A. white-collar", "B. blue-collar", "C. trades", "D. management"],
+      "answer": 1
+    },
+    {
+      "id": "q8",
+      "prompt": "Charlie says Ryan has a/an ____ spirit.",
+      "options": ["A. wild", "B. kind-hearted", "C. entrepreneurial", "D. greedy"],
+      "answer": 3
+    },
+    {
+      "id": "q9",
+      "prompt": "Charlie says he wakes up every morning with a view of the mountains and the warm air from the ____.",
+      "options": ["A. plateau", "B. valley", "C. south", "D. coast"],
+      "answer": 4
+    },
+    {
+      "id": "q10",
+      "prompt": "Charlie will let Ryan know when he ____ more about Albanian history.",
+      "options": ["A. uncover it", "B. discover it", "C. find out", "D. get knowledge"],
+      "answer": 3
+    },
+    {
+      "id": "q11",
+      "prompt": "Charlie says it will be cheaper to ____ every day.",
+      "options": ["A. eat out", "B. dine in", "C. cook my own food", "D. order in"],
+      "answer": 1
+    }
+  ]
 }

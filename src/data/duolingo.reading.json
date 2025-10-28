@@ -1,0 +1,45 @@
+{
+  "id": "duolingo-r1",
+  "type": "duolingo",
+  "skill": "reading",
+  "task": 1,
+  "title": "Reading: Community Garden Notice",
+  "question": "Read the notice and choose the best answers.",
+  "imageUrl": "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=1200",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is the main purpose of the notice?",
+      "options": [
+        "To advertise a cooking class",
+        "To recruit volunteers",
+        "To announce a garden closure",
+        "To sell gardening tools"
+      ],
+      "answer": 2
+    },
+    {
+      "id": "q2",
+      "prompt": "When will the volunteer event take place?",
+      "options": [
+        "This morning",
+        "Next weekend",
+        "Every weekday",
+        "During winter"
+      ],
+      "answer": 2
+    },
+    {
+      "id": "q3",
+      "prompt": "What should volunteers bring?",
+      "options": [
+        "Water and gloves",
+        "Seeds and soil",
+        "Ladders and paint",
+        "Cameras and notebooks"
+      ],
+      "answer": 1
+    }
+  ]
+}
+

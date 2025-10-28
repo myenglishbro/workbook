@@ -1,0 +1,26 @@
+{
+  "id": "celpip-t1",
+  "type": "celpip",
+  "skill": "type",
+  "task": 1,
+  "title": "Fill the missing word",
+  "question": "Type the missing word to complete each sentence.",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Please submit your application ____ Friday.",
+      "answer": "by"
+    },
+    {
+      "id": "q2",
+      "prompt": "I look forward ____ hearing from you.",
+      "answer": "to"
+    },
+    {
+      "id": "q3",
+      "prompt": "We need to ____ a meeting with the manager.",
+      "answer": "schedule"
+    }
+  ]
+}
+

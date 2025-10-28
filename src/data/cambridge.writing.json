@@ -30,5 +30,21 @@
         "timeLimitSec":  2100,
         "targetWords":  260,
         "minWords":  220
+    },
+    {
+        "id":  "cambridge-w3",
+        "type":  "cambridge",
+        "skill":  "writing",
+        "task":  2,
+        "title":  "SALOME TAREA",
+        "question":  "Escribe un artÃ­culo expresando tu opiniÃ³n con razones y ejemplos.",
+        "examples":  [
+                         "ISDSDSDS",
+                         "Dos o tres pÃ¡rrafos principales",
+                         "ConclusiÃ³n"
+                     ],
+        "timeLimitSec":  2100,
+        "targetWords":  260,
+        "minWords":  220
     }
 ]

@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react'
+﻿﻿import React, { useEffect, useState } from 'react'
 import Recorder from './Recorder.jsx'
 import WritingPanel from './WritingPanel.jsx'
 import ReadingQuiz from './ReadingQuiz.jsx'
@@ -37,6 +37,11 @@ export default function ExerciseDetail({ exercise, onBack }) {
           <span className="chip-tw">{type?.toUpperCase?.()}</span>
           <span className="chip-tw">{skill[0].toUpperCase() + skill.slice(1)}</span>
           {exercise.task != null ? <span className="chip-tw">Task {exercise.task}</span> : null}
+          {exercise.level ? (
+            <span className="chip-tw">
+              {exercise.level}
+            </span>
+          ) : null}
         </div>
         <h2 className="mb-1">{title || question}</h2>
         <p className="text-slate-300 text-sm m-0">{question}</p>
@@ -92,14 +97,16 @@ export default function ExerciseDetail({ exercise, onBack }) {
           <div className="space-y-3">
             <ListeningQuiz videoUrl={videoUrl} youtubeId={youtubeId} title={title || question} questions={questions} />
           </div>
+        ) : skill === 'type' ? (
+          <div className="space-y-3">
+            <ReadingQuiz imageUrl={imageUrl} title={title || question} questions={questions} />
+          </div>
         ) : (
           <div>
-            <Recorder filePrefix={`${id || type}-respuesta`} limitSec={timeLimitSec} />
+            <Recorder filePrefix={`${id || type}-respuesta`} limitSec={timeLimitSec} expectedKeywords={verbs} />
           </div>
         )}
       </div>
     </div>
   )
 }
-
-

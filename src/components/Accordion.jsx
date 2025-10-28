@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 
 // Logic preserved — only UI/UX styling tweaks with Tailwind.
 function groupByTask(items) {
@@ -84,40 +85,61 @@ export default function Accordion({ items, onSelect }) {
             </button>
 
             {/* Panel */}
-            {isOpen && (
-              <div
-                className="px-3 sm:px-4 py-3 sm:py-4"
-                id={`panel-${task}`}
-                role="region"
-                aria-labelledby={`header-${task}`}
-              >
-                <ul className="space-y-2.5">
-                  {list.map((ex) => (
-                    <li key={ex.id}>
-                      <button
-                        type="button"
-                        className={[
-                          'w-full text-left rounded-xl border p-3.5 sm:p-4 transition',
-                          'bg-slate-900/70 border-slate-800 hover:border-slate-700 hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/60',
-                          'hover:-translate-y-0.5',
-                        ].join(' ')}
-                        onClick={() => onSelect?.(ex)}
-                        title="Open exercise"
+            <AnimatePresence initial={false}>
+              {isOpen && (
+                <motion.div
+                  className="px-3 sm:px-4 py-3 sm:py-4"
+                  id={`panel-${task}`}
+                  role="region"
+                  aria-labelledby={`header-${task}`}
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <ul className="space-y-2.5">
+                    {list.map((ex) => (
+                      <motion.li key={ex.id}
+                        initial={{ opacity: 0, y: 6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.18 }}
                       >
-                        <span className="block font-semibold text-slate-100 truncate">
-                          {ex.title || ex.question || 'Exercise'}
-                        </span>
-                        {(ex.question || ex.subtitle) && (
-                          <span className="block text-slate-400 text-sm mt-0.5 line-clamp-2">
-                            {ex.subtitle || ex.question}
-                          </span>
-                        )}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+                        <button
+                          type="button"
+                          className={[
+                            'w-full text-left rounded-xl border p-3.5 sm:p-4 transition',
+                            'bg-slate-900/70 border-slate-800 hover:border-slate-700 hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/60',
+                            'hover:-translate-y-0.5',
+                          ].join(' ')}
+                          onClick={() => onSelect?.(ex)}
+                          title="Open exercise"
+                        >
+                          <div className="flex items-center gap-2">
+                            <span className="block font-semibold text-slate-100 truncate">
+                              {ex.title || ex.question || 'Exercise'}
+                            </span>
+                            {(() => {
+                              const lvl = ex.level || (ex.task >= 3 ? 'Advanced' : ex.task === 2 ? 'Intermediate' : 'Beginner')
+                              const cls = lvl === 'Advanced'
+                                ? 'border-fuchsia-500/50 bg-fuchsia-900/20 text-fuchsia-300'
+                                : lvl === 'Intermediate'
+                                  ? 'border-amber-500/50 bg-amber-900/20 text-amber-300'
+                                  : 'border-emerald-500/50 bg-emerald-900/20 text-emerald-300'
+                              return <span className={`inline-flex items-center px-2 py-0.5 rounded-full border text-[10px] ${cls}`}>{lvl}</span>
+                            })()}
+                          </div>
+                          {(ex.question || ex.subtitle) && (
+                            <span className="block text-slate-400 text-sm mt-0.5 line-clamp-2">
+                              {ex.subtitle || ex.question}
+                            </span>
+                          )}
+                        </button>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </section>
         )
       })}

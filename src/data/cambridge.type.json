@@ -1,0 +1,26 @@
+{
+  "id": "cambridge-t1",
+  "type": "cambridge",
+  "skill": "type",
+  "task": 1,
+  "title": "Missing word in context",
+  "question": "Type the single missing word to complete the sentence.",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "The company aims to ____ its carbon emissions by 2030.",
+      "answer": "reduce"
+    },
+    {
+      "id": "q2",
+      "prompt": "She decided to apply ____ a scholarship abroad.",
+      "answer": "for"
+    },
+    {
+      "id": "q3",
+      "prompt": "We need to focus ____ improving customer satisfaction.",
+      "answer": "on"
+    }
+  ]
+}
+

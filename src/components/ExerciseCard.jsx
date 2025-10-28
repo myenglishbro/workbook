@@ -1,4 +1,4 @@
-﻿import React from 'react'
+﻿﻿import React from 'react'
 import Recorder from './Recorder.jsx'
 
 export default function ExerciseCard({ exercise }) {
@@ -61,4 +61,3 @@ export default function ExerciseCard({ exercise }) {
     </article>
   )
 }
-

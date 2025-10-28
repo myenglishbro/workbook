@@ -1,0 +1,26 @@
+{
+  "id": "ielts-t1",
+  "type": "ielts",
+  "skill": "type",
+  "task": 1,
+  "title": "Type the missing word",
+  "question": "Complete each sentence by typing the missing word.",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "The report aims to ____ key trends in education.",
+      "answer": "highlight"
+    },
+    {
+      "id": "q2",
+      "prompt": "There has been a steady increase ____ online learning.",
+      "answer": "in"
+    },
+    {
+      "id": "q3",
+      "prompt": "Students are encouraged to ____ their findings with evidence.",
+      "answer": "support"
+    }
+  ]
+}
+

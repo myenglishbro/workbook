@@ -7,6 +7,7 @@ export default function RecorderPro({
   filePrefix = "recording",
   limitSec = 0,
   sttDefaultLang = typeof window !== "undefined" ? (navigator.language || "es-ES") : "es-ES",
+  expectedKeywords = [],
 }) {
   const [recording, setRecording] = useState(false);
   const [elapsed, setElapsed] = useState(0);
@@ -170,6 +171,41 @@ export default function RecorderPro({
   const showLeft = Boolean(title?.trim() || instructions?.trim());
   const progressPct = limitSec ? Math.min(100, Math.round((elapsed / limitSec) * 100)) : 0;
 
+  // Heatmap helpers
+  const norm = (s = "") => s.toString().toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '').trim();
+  const spokenText = `${transcriptFinal} ${transcriptInterim}`.trim();
+  const spokenTokens = useMemo(() => new Set(norm(spokenText).split(/[^a-zA-Záéíóúñü]+/).filter(Boolean)), [spokenText]);
+  const normalizedTargets = useMemo(() => (Array.isArray(expectedKeywords) ? expectedKeywords : []).map(norm).filter(Boolean), [expectedKeywords]);
+  const foundMap = useMemo(() => {
+    const m = new Map();
+    for (const kw of normalizedTargets) m.set(kw, spokenTokens.has(kw));
+    return m;
+  }, [normalizedTargets, spokenTokens]);
+
+  // Circle timer component
+  const CircleTimer = ({ size = 44, stroke = 5, pct = 0, warning = false }) => {
+    const r = (size - stroke) / 2;
+    const c = 2 * Math.PI * r;
+    const off = c * (1 - Math.min(1, Math.max(0, pct / 100)));
+    return (
+      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className="shrink-0">
+        <circle cx={size/2} cy={size/2} r={r} stroke="#0f172a" strokeWidth={stroke} fill="none" />
+        <circle
+          cx={size/2}
+          cy={size/2}
+          r={r}
+          stroke={warning ? '#f59e0b' : '#22c55e'}
+          strokeWidth={stroke}
+          fill="none"
+          strokeDasharray={c}
+          strokeDashoffset={off}
+          strokeLinecap="round"
+          style={{ transition: 'stroke-dashoffset 0.2s linear' }}
+        />
+      </svg>
+    );
+  };
+
   return (
     <div className={`w-full grid ${showLeft ? "grid-cols-1 md:grid-cols-2" : "grid-cols-1"} gap-4 md:gap-6`}>
       {/* Izquierda: SOLO si envÃ­as contenido */}
@@ -193,13 +229,13 @@ export default function RecorderPro({
 
       {/* Derecha: panel de grabaciÃ³n */}
       <section className="rounded-2xl border border-slate-800 bg-slate-900/50 p-4 md:p-6 shadow flex flex-col gap-4">
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex flex-wrap items-center gap-3">
           {!recording ? (
-            <button className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold shadow" onClick={startRecording}>
+            <button className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold shadow w-full sm:w-auto" onClick={startRecording}>
               â— Record
             </button>
           ) : (
-            <button className="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-semibold shadow" onClick={stopRecording}>
+            <button className="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-semibold shadow w-full sm:w-auto" onClick={stopRecording}>
               â–  Stop
             </button>
           )}
@@ -210,6 +246,10 @@ export default function RecorderPro({
           >
             {formatTime(elapsed)}{limitSec ? ` / ${formatTime(limitSec)}` : ""}
           </span>
+
+          {limitSec > 0 && (
+            <CircleTimer size={44} stroke={5} pct={progressPct} warning={recording && progressPct >= 75} />
+          )}
 
           {limitSec > 0 && (
             <div className="flex-1 h-2 bg-slate-800 rounded-full overflow-hidden">
@@ -259,6 +299,26 @@ export default function RecorderPro({
               {transcriptFinal}
               {transcriptInterim && <span className="text-slate-300/80 italic">{" "}{transcriptInterim}</span>}
             </div>
+
+            {normalizedTargets.length ? (
+              <div className="pt-2">
+                <div className="text-xs text-slate-400 mb-1">Pronunciation heatmap</div>
+                <div className="flex flex-wrap gap-1.5">
+                  {normalizedTargets.map((kw) => {
+                    const ok = foundMap.get(kw);
+                    return (
+                      <span key={kw} className={[
+                        'inline-flex items-center gap-1 px-2 py-0.5 rounded-full border text-xs',
+                        ok ? 'border-emerald-600/50 bg-emerald-900/30 text-emerald-300' : 'border-rose-600/50 bg-rose-900/20 text-rose-300'
+                      ].join(' ')}>
+                        {kw}
+                        {ok ? '✓' : '•'}
+                      </span>
+                    );
+                  })}
+                </div>
+              </div>
+            ) : null}
 
             <div className="flex flex-wrap gap-2 pt-2">
               <button className="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-100 text-sm disabled:opacity-50" onClick={copyTranscript} disabled={!transcriptFinal && !transcriptInterim}>

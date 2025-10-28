@@ -1,0 +1,35 @@
+[
+  {
+    "id": "duolingo-w1",
+    "type": "duolingo",
+    "skill": "writing",
+    "task": 1,
+    "title": "Write about a familiar topic (Short)",
+    "question": "Describe your favorite place to relax and explain why.",
+    "examples": [
+      "My favorite place to relax is a small park near my home.",
+      "I go there to read and breathe fresh air after work.",
+      "It’s quiet, green, and helps me clear my mind."
+    ],
+    "timeLimitSec": 600,
+    "targetWords": 100,
+    "minWords": 80
+  },
+  {
+    "id": "duolingo-w2",
+    "type": "duolingo",
+    "skill": "writing",
+    "task": 2,
+    "title": "Extended writing (Opinion)",
+    "question": "Some people prefer to work from home, while others like working in an office. Discuss both views and give your opinion.",
+    "examples": [
+      "Remote work offers flexibility and saves commuting time.",
+      "Offices support teamwork and clearer boundaries between work and home.",
+      "A hybrid model may balance productivity with well-being."
+    ],
+    "timeLimitSec": 1800,
+    "targetWords": 200,
+    "minWords": 180
+  }
+]
+
