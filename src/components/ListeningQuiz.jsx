@@ -1,8 +1,7 @@
-﻿import React, { useMemo, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 
 function extractYouTubeId(urlOrId = '') {
   if (!urlOrId) return ''
-  // If it's already a short ID (11 chars typical), return as is
   if (/^[a-zA-Z0-9_-]{10,}$/i.test(urlOrId) && !/\//.test(urlOrId)) return urlOrId
   const m = String(urlOrId).match(/(?:youtu\.be\/|v=|embed\/)([a-zA-Z0-9_-]{11})/)
   return m ? m[1] : ''
@@ -48,7 +47,7 @@ export default function ListeningQuiz({ videoUrl, youtubeId, questions = [], tit
   return (
     <div className="space-y-4">
       {vid ? (
-        <div className="aspect-video w-full rounded-xl overflow-hidden border border-slate-800 bg-black">
+        <div className="aspect-video w-full rounded-xl overflow-hidden border border-[color:var(--panel-border)] bg-black">
           <iframe
             className="w-full h-full"
             src={`https://www.youtube.com/embed/${vid}`}
@@ -65,33 +64,33 @@ export default function ListeningQuiz({ videoUrl, youtubeId, questions = [], tit
           const user = answers[q.id]
           const ok = checked ? isCorrect(q, user) : null
           return (
-            <li key={q.id || idx} className="p-3 rounded-xl border border-slate-800 bg-slate-900/60">
-              <div className="text-slate-100 font-semibold mb-2">{q.prompt || `Pregunta ${idx + 1}`}</div>
+            <li key={q.id || idx} className="p-3 rounded-xl border border-[color:var(--panel-border)] bg-white">
+              <div className="text-[color:var(--text)] font-semibold mb-2">{q.prompt || `Pregunta ${idx + 1}`}</div>
               {Array.isArray(q.options) ? (
                 <div className="grid gap-2">
                   {q.options.map((opt, oi) => (
-                    <label key={oi} className={`flex items-center gap-2 p-2 rounded-lg border ${checked ? (Number(user) === oi ? (ok ? 'border-emerald-500' : 'border-rose-500') : 'border-slate-800') : 'border-slate-800'} bg-slate-900`}>
+                    <label key={oi} className={`flex items-center gap-2 p-2 rounded-lg border ${checked ? (Number(user) === oi ? (ok ? 'border-emerald-500 bg-emerald-50' : 'border-rose-500 bg-rose-50') : 'border-[color:var(--panel-border)] bg-white') : 'border-[color:var(--panel-border)] bg-white hover:bg-[#F7FAFF]'}`}>
                       <input
                         type="radio"
                         name={q.id || `q-${idx}`}
                         checked={Number(user) === oi}
                         onChange={() => setAnswer(q.id, oi)}
                       />
-                      <span className="text-slate-200">{opt}</span>
+                      <span className="text-[color:var(--text)]">{opt}</span>
                     </label>
                   ))}
                 </div>
               ) : (
                 <input
                   type="text"
-                  className={`w-full p-2 rounded-lg border ${checked ? (ok ? 'border-emerald-500' : 'border-rose-500') : 'border-slate-800'} bg-slate-900 text-slate-100`}
+                  className={`w-full p-2 rounded-lg border ${checked ? (ok ? 'border-emerald-500 bg-emerald-50' : 'border-rose-500 bg-rose-50') : 'border-[color:var(--panel-border)] bg-white hover:bg-[#F7FAFF]'} text-[color:var(--text)]`}
                   placeholder="Type your answer"
                   value={user || ''}
                   onChange={(e) => setAnswer(q.id, e.target.value)}
                 />
               )}
               {checked && ok === false && q.explanation ? (
-                <div className="text-slate-300 text-sm mt-2">Hint: {q.explanation}</div>
+                <div className="text-[color:var(--muted)] text-sm mt-2">Hint: {q.explanation}</div>
               ) : null}
             </li>
           )
@@ -104,12 +103,11 @@ export default function ListeningQuiz({ videoUrl, youtubeId, questions = [], tit
         ) : (
           <>
             <button className="btn-ghost-tw" onClick={reset}>Reset</button>
-            <span className="chip-tw">PuntuaciÃ³n: {results?.score ?? 0} / {results?.total ?? normalized.length}</span>
+            <span className="chip-tw">Puntuación: {results?.score ?? 0} / {results?.total ?? normalized.length}</span>
           </>
         )}
       </div>
     </div>
   )
 }
-
 

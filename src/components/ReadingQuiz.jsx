@@ -1,4 +1,4 @@
-﻿import React, { useMemo, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 
 export default function ReadingQuiz({
   imageUrl,
@@ -57,8 +57,8 @@ export default function ReadingQuiz({
       {/* Header / toolbar */}
       <div className="mb-4 sm:mb-6 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
         <div>
-          <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">{title}</h2>
-          <p className="text-slate-400 text-sm mt-1">
+          <h2 className="text-xl sm:text-2xl font-bold text-[color:var(--text)] tracking-tight">{title}</h2>
+          <p className="text-[color:var(--muted)] text-sm mt-1">
             {normalized.length} {normalized.length === 1 ? 'question' : 'questions'} · {answeredCount}
             /{normalized.length} answered
           </p>
@@ -66,7 +66,7 @@ export default function ReadingQuiz({
         <div className="flex items-center gap-2">
           {!checked ? (
             <button
-              className="btn-ghost-tw bg-amber-500/20 border border-amber-500/40 text-amber-300 hover:bg-amber-500/40 hover:text-white transition"
+              className="btn-ghost-tw bg-amber-500/20 border border-amber-500/40 text-amber-600 hover:bg-amber-500/30 hover:text-amber-700 transition"
               onClick={() => setChecked(true)}
               disabled={!normalized.length}
             >
@@ -74,11 +74,11 @@ export default function ReadingQuiz({
             </button>
           ) : (
             <>
-              <span className="hidden sm:inline-block rounded-full border border-emerald-600/50 bg-emerald-900/30 px-3 py-1 text-sm font-semibold text-emerald-300">
+              <span className="hidden sm:inline-block rounded-full border border-emerald-600/50 bg-emerald-50 px-3 py-1 text-sm font-semibold text-emerald-700">
                 Score: {results?.score ?? 0} / {results?.total ?? normalized.length}
               </span>
               <button
-                className="btn-ghost-tw border border-slate-600 hover:bg-slate-800 text-slate-200"
+                className="btn-ghost-tw border border-[color:var(--panel-border)] hover:bg-[#EEF3FF] text-[color:var(--text)]"
                 onClick={reset}
               >
                 Reset
@@ -98,7 +98,7 @@ export default function ReadingQuiz({
                 <img
                   src={imageUrl}
                   alt="Reading text"
-                  className="w-full rounded-2xl border border-slate-800 shadow-lg max-h-[520px] object-contain bg-slate-950 cursor-zoom-in transition-transform duration-300 group-hover:scale-[1.01]"
+                  className="w-full rounded-2xl border border-[color:var(--panel-border)] shadow-lg max-h-[520px] object-contain bg-white cursor-zoom-in transition-transform duration-300 group-hover:scale-[1.01]"
                   onClick={() => setZoomOpen(true)}
                   loading="lazy"
                 />
@@ -106,7 +106,7 @@ export default function ReadingQuiz({
                 <button
                   type="button"
                   onClick={() => setZoomOpen(true)}
-                  className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full border border-slate-700 bg-slate-900/80 px-2.5 py-1.5 text-xs text-slate-200 backdrop-blur hover:bg-slate-800/80"
+                  className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full border border-[color:var(--panel-border)] bg-white px-2.5 py-1.5 text-xs text-[color:var(--text)] backdrop-blur hover:bg-[#EEF3FF]"
                   title="Zoom"
                 >
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-4 w-4">
@@ -114,7 +114,7 @@ export default function ReadingQuiz({
                   </svg>
                   Zoom
                 </button>
-                <figcaption className="text-slate-400 text-sm mt-2 italic text-center">{title}</figcaption>
+                <figcaption className="text-[color:var(--muted)] text-sm mt-2 italic text-center">{title}</figcaption>
               </figure>
             </div>
 
@@ -148,17 +148,17 @@ export default function ReadingQuiz({
                     'rounded-2xl border shadow-sm transition-colors duration-300',
                     checked
                       ? ok
-                        ? 'border-emerald-500/70 bg-emerald-950/30'
-                        : 'border-rose-500/70 bg-rose-950/20'
-                      : 'border-slate-700 bg-slate-900/50 hover:bg-slate-900/80',
+                        ? 'border-emerald-500/70 bg-emerald-50'
+                        : 'border-rose-500/70 bg-rose-50'
+                      : 'border-[color:var(--panel-border)] bg-white hover:bg-[#F7FAFF]',
                   ].join(' ')}
                 >
                   <div className="p-4">
                     <div className="mb-3 flex items-start justify-between gap-3">
-                      <div className="text-slate-100 font-semibold leading-snug">
+                      <div className="text-[color:var(--text)] font-semibold leading-snug">
                         {q.prompt || `Question ${idx + 1}`}
                       </div>
-                      <span className="shrink-0 inline-flex items-center rounded-full border border-slate-700 bg-slate-800 px-2 py-0.5 text-xs text-slate-300">
+                      <span className="shrink-0 inline-flex items-center rounded-full border border-[color:var(--panel-border)] bg-white px-2 py-0.5 text-xs text-[color:var(--muted)]">
                         {idx + 1}/{normalized.length}
                       </span>
                     </div>
@@ -173,10 +173,10 @@ export default function ReadingQuiz({
                               checked
                                 ? Number(user) === oi
                                   ? ok
-                                    ? 'border-emerald-500 bg-emerald-900/20'
-                                    : 'border-rose-500 bg-rose-900/20'
-                                  : 'border-slate-700 bg-slate-900'
-                                : 'border-slate-700 bg-slate-900 hover:bg-slate-800/70',
+                                    ? 'border-emerald-500 bg-emerald-50'
+                                    : 'border-rose-500 bg-rose-50'
+                                  : 'border-[color:var(--panel-border)] bg-white'
+                                : 'border-[color:var(--panel-border)] bg-white hover:bg-[#F7FAFF]',
                             ].join(' ')}
                           >
                             <input
@@ -186,7 +186,7 @@ export default function ReadingQuiz({
                               checked={Number(user) === oi}
                               onChange={() => setAnswer(q.id, oi)}
                             />
-                            <span className="text-slate-200">{opt}</span>
+                            <span className="text-[color:var(--text)]">{opt}</span>
                           </label>
                         ))}
                       </div>
@@ -194,12 +194,12 @@ export default function ReadingQuiz({
                       <input
                         type="text"
                         className={[
-                          'w-full rounded-lg border p-2 text-slate-100 placeholder-slate-500 transition-colors duration-300',
+                          'w-full rounded-lg border p-2 text-[color:var(--text)] placeholder-slate-500 transition-colors duration-300',
                           checked
                             ? ok
-                              ? 'border-emerald-500 bg-emerald-900/20'
-                              : 'border-rose-500 bg-rose-900/20'
-                            : 'border-slate-700 bg-slate-900 hover:bg-slate-800/60',
+                              ? 'border-emerald-500 bg-emerald-50'
+                              : 'border-rose-500 bg-rose-50'
+                            : 'border-[color:var(--panel-border)] bg-white hover:bg-[#F7FAFF]',
                         ].join(' ')}
                         placeholder="Type your answer"
                         value={user || ''}
@@ -208,9 +208,9 @@ export default function ReadingQuiz({
                     )}
 
                     {checked && ok === false && q.explanation ? (
-                      <div className="mt-2 text-sm text-slate-300">
+                      <div className="mt-2 text-sm text-[color:var(--muted)]">
                         <span className="mr-1">💡</span>
-                        <span className="text-slate-400">Hint:</span> {q.explanation}
+                        <span className="text-[color:var(--muted)]">Hint:</span> {q.explanation}
                       </div>
                     ) : null}
                   </div>
@@ -222,7 +222,7 @@ export default function ReadingQuiz({
           {/* bottom score chip for mobile */}
           {checked && (
             <div className="sm:hidden mt-4">
-              <span className="inline-block rounded-full border border-emerald-600/50 bg-emerald-900/30 px-3 py-1 text-sm font-semibold text-emerald-300">
+              <span className="inline-block rounded-full border border-emerald-600/50 bg-emerald-50 px-3 py-1 text-sm font-semibold text-emerald-700">
                 Score: {results?.score ?? 0} / {results?.total ?? normalized.length}
               </span>
             </div>
@@ -232,3 +232,4 @@ export default function ReadingQuiz({
     </div>
   )
 }
+

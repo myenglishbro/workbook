@@ -4,6 +4,35 @@ import WritingPanel from './WritingPanel.jsx'
 import ReadingQuiz from './ReadingQuiz.jsx'
 import ListeningQuiz from './ListeningQuiz.jsx'
 
+// Small local component: sample answers with tabs (B2/C1/C2)
+function SamplesTabs({ examples = [] }) {
+  const [tab, setTab] = useState(0)
+  const labels = ['B2', 'C1', 'C2']
+  const current = examples[tab] || ''
+  return (
+    <div className="mt-2">
+      <div className="flex rounded-full border border-[color:var(--panel-border)] bg-white overflow-hidden w-fit">
+        {labels.map((lbl, i) => (
+          <button
+            key={lbl}
+            type="button"
+            onClick={() => setTab(i)}
+            className={[
+              'px-3 py-1 text-sm font-semibold transition-colors',
+              i === tab ? 'bg-[color:var(--primary)] text-white' : 'text-[color:var(--muted)] hover:bg-[#EEF3FF]'
+            ].join(' ')}
+          >
+            {lbl}
+          </button>
+        ))}
+      </div>
+      <div className="mt-3 text-[color:var(--text)] text-sm leading-relaxed">
+        {current || '—'}
+      </div>
+    </div>
+  )
+}
+
 export default function ExerciseDetail({ exercise, onBack }) {
   const {
     id,
@@ -20,6 +49,7 @@ export default function ExerciseDetail({ exercise, onBack }) {
     questions = [],
     videoUrl,
     youtubeId,
+    examinerTip,
   } = exercise
 
   const [zoomOpen, setZoomOpen] = useState(false)
@@ -32,7 +62,7 @@ export default function ExerciseDetail({ exercise, onBack }) {
 
   return (
     <div className="card">
-      <div className="px-4 py-4 border-b border-slate-800 bg-slate-900/40">
+      <div className="px-4 py-4 border-b border-[color:var(--panel-border)] bg-white">
         <div className="flex gap-2 mb-2">
           <span className="chip-tw">{type?.toUpperCase?.()}</span>
           <span className="chip-tw">{skill[0].toUpperCase() + skill.slice(1)}</span>
@@ -44,7 +74,7 @@ export default function ExerciseDetail({ exercise, onBack }) {
           ) : null}
         </div>
         <h2 className="mb-1">{title || question}</h2>
-        <p className="text-slate-300 text-sm m-0">{question}</p>
+        <p className="text-[color:var(--muted)] text-sm m-0">{question}</p>
         <div className="mt-3">
           <button className="btn-ghost-tw" onClick={onBack}>Back to list</button>
         </div>
@@ -57,7 +87,7 @@ export default function ExerciseDetail({ exercise, onBack }) {
             <img
               src={imageUrl}
               alt="Exercise image"
-              className="w-full max-h-72 object-cover rounded-2xl border border-slate-800 cursor-zoom-in shadow-md hover:scale-[1.01] transition-transform duration-300"
+              className="w-full max-h-72 object-cover rounded-2xl border border-[color:var(--panel-border)] cursor-zoom-in shadow-md hover:scale-[1.01] transition-transform duration-300"
               onClick={() => setZoomOpen(true)}
               loading="lazy"
             />
@@ -70,19 +100,27 @@ export default function ExerciseDetail({ exercise, onBack }) {
         ) : null}
 
         {verbs?.length ? (
-          <div className="text-slate-300">
-            <strong className="text-slate-100">Suggested verbs:</strong> <span>{verbs.join(', ')}</span>
+          <div className="text-[color:var(--muted)]">
+            <strong className="text-[color:var(--text)]">Suggested verbs:</strong> <span>{verbs.join(', ')}</span>
           </div>
         ) : null}
 
         {examples?.length ? (
           <div>
-            <strong>Examples:</strong>
-            <ul className="list-disc pl-5 mt-2 text-slate-300">
-              {examples.slice(0, 3).map((ej, idx) => (<li key={idx}>{ej}</li>))}
-            </ul>
+            <details className="rounded-xl border border-[color:var(--panel-border)] bg-white p-3">
+              <summary className="cursor-pointer text-[color:var(--text)]">View sample answer</summary>
+              <SamplesTabs examples={examples} />
+            </details>
           </div>
         ) : null}
+
+        {/* Tips del examinador */}
+        <details className="rounded-xl border border-[color:var(--panel-border)] bg-white p-3">
+          <summary className="cursor-pointer text-[color:var(--text)]">Tips del examinador</summary>
+          <div className="mt-2 text-[color:var(--muted)] text-sm">
+            <p className="m-0">{examinerTip || 'Avoid repeating "because" too often. Try "since", "as", or "due to". Vary sentence length and connect ideas clearly.'}</p>
+          </div>
+        </details>
 
         {/* Body by skill */}
         {skill === 'writing' ? (

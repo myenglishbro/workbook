@@ -24,19 +24,15 @@ import duolingoType from './data/duolingo.type.json'
 import celpipType from './data/celpip.type.json'
 import ieltsType from './data/ielts.type.json'
 
-// ---------------- Small UI helpers ----------------
-const Chip = ({ children }) => (
-  <span className="inline-flex items-center gap-1 rounded-full border border-slate-700 bg-slate-800 px-2 py-0.5 text-xs text-slate-300">
-    {children}
-  </span>
-)
+// -------- Small UI helper --------
+const Chip = ({ children }) => <span className="c-chip">{children}</span>
 
-// ---------------- Helpers ----------------
+// -------- Helpers --------
 function mergeById(oldArr = [], newArr = []) {
-  const map = new Map(newArr.map((x) => [x.id, { ...x }])) // nuevas preguntas base
+  const map = new Map(newArr.map((x) => [x.id, { ...x }]))
   for (const it of oldArr) {
     const prev = map.get(it.id) || {}
-    map.set(it.id, { ...prev, ...it }) // conserva datos antiguos, sobreescribe duplicados
+    map.set(it.id, { ...prev, ...it })
   }
   return Array.from(map.values())
 }
@@ -46,14 +42,13 @@ function asArray(x) {
   return [x]
 }
 
-// ---------------- Constantes ----------------
+// -------- Constantes --------
 const TYPES = [
   { id: 'celpip', label: 'CELPIP' },
   { id: 'cambridge', label: 'Cambridge' },
   { id: 'ielts', label: 'IELTS' },
   { id: 'duolingo', label: 'Duolingo' },
 ]
-
 const SKILLS = [
   { id: 'speaking', label: 'Speaking', icon: Mic, short: 'Speak' },
   { id: 'listening', label: 'Listening', icon: Headphones, short: 'Listen' },
@@ -62,9 +57,7 @@ const SKILLS = [
   { id: 'type', label: 'Type', icon: Keyboard, short: 'Type' },
 ]
 
-// Cada vez que cambies los JSON, solo sube la versión ↓
 const STORAGE_KEY = 'speaking-app:data:v5'
-
 const SEEDS = {
   celpip: [
     ...asArray(celpipSpeaking),
@@ -102,6 +95,11 @@ export default function App() {
   const [screen, setScreen] = useState('splash')
   const [selectedExercise, setSelectedExercise] = useState(null)
 
+  // 🌈 Activa tema CELTESPIP (light)
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', 'celtespip-light')
+  }, [])
+
   // 🔁 Auto-merge entre localStorage y nuevos JSON
   const [datasets, setDatasets] = useState(() => {
     const saved = localStorage.getItem(STORAGE_KEY)
@@ -115,7 +113,6 @@ export default function App() {
     }
   })
 
-  // Guardar cambios si hay actualización
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(datasets))
   }, [datasets])
@@ -130,7 +127,7 @@ export default function App() {
     return all.filter((x) => (x.skill || 'speaking') === skill)
   }, [datasets, selected, skill])
 
-  // ---------------- Render ----------------
+  // -------- Render --------
   if (screen === 'splash') {
     return (
       <div className="min-h-screen grid place-items-center px-4 py-8">
@@ -154,95 +151,117 @@ export default function App() {
   const selectedTypeLabel = TYPES.find((t) => t.id === selected)?.label || ''
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-6 space-y-6">
-      {/* Header */}
-      <header className="sticky top-4 z-10 rounded-2xl border border-slate-800 bg-slate-900/70 backdrop-blur px-4 py-4 shadow-md shadow-black/20">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <div className="min-w-0">
-            <h1 className="flex items-center gap-2 text-xl sm:text-2xl font-bold text-white leading-tight">
-              <SelectedSkillIcon className="h-6 w-6 text-amber-300" />
-              Speaking Trainer
-              <Chip>
-                <BookOpen className="h-3.5 w-3.5" /> v5
-              </Chip>
-            </h1>
-            <p className="mt-1 text-slate-300 text-sm">
-              Práctica por examen y habilidad con grabación y descarga.
-            </p>
-          </div>
-
-          {/* Right controls */}
-          <div className="flex flex-wrap items-center gap-3 justify-end">
-            <span className="chip-tw">{selectedTypeLabel}</span>
-            <span className="chip-tw flex items-center gap-1">
-              <SelectedSkillIcon className="h-4 w-4" /> {SKILLS.find((s) => s.id === skill)?.label}
-            </span>
-
-            {/* Segmented control */}
-            <div className="flex rounded-full border border-slate-700 overflow-hidden">
-              {SKILLS.map((s) => (
-                <button
-                  key={s.id}
-                  className={[
-                    'px-3 py-1 text-sm font-bold flex items-center gap-1.5',
-                    skill === s.id ? 'bg-amber-400 text-slate-900' : 'bg-slate-800 text-slate-200 hover:bg-slate-700',
-                  ].join(' ')}
-                  onClick={() => changeSkill(s.id)}
-                  title={s.label}
-                >
-                  <s.icon className="h-3.5 w-3.5" />
-                  <span className="hidden sm:inline">{s.label}</span>
-                  <span className="sm:hidden">{s.short}</span>
-                </button>
-              ))}
+    <div className="min-h-screen">
+      <div className="max-w-6xl mx-auto px-4 py-8 space-y-6">
+        {/* Header */}
+        <header className="c-card px-5 py-4">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="min-w-0">
+              <h1 className="flex items-center gap-2 text-xl sm:text-2xl font-extrabold tracking-tight">
+                <SelectedSkillIcon className="h-6 w-6 text-[color:var(--primary)]" />
+                Speaking Trainer
+                <Chip><BookOpen className="h-3.5 w-3.5" /> v5</Chip>
+              </h1>
+              <p className="mt-1 text-sm text-[color:var(--muted)]">
+                Práctica por examen y habilidad con grabación y descarga.
+              </p>
             </div>
 
-            <button className="btn-ghost-tw" onClick={() => setScreen('splash')}>
-              <span className="inline-flex items-center gap-1">
-                <Home className="h-4 w-4" /> Main menu
+            {/* Right controls */}
+            <div className="flex flex-wrap items-center gap-3 justify-end">
+              <span className="c-chip" style={{ background: 'rgba(62,100,255,.12)', color: '#1E3A8A' }}>
+                {selectedTypeLabel}
               </span>
-            </button>
+              <span className="c-chip">
+                <SelectedSkillIcon className="h-4 w-4 text-[color:var(--primary)]" />
+                {SKILLS.find((s) => s.id === skill)?.label}
+              </span>
+
+              {/* Segmented control (light) */}
+              <div className="flex rounded-full border border-[color:var(--panel-border)] bg-white overflow-hidden">
+                {SKILLS.map((s) => (
+                  <button
+                    key={s.id}
+                    className={[
+                      'px-3 py-1 text-sm font-semibold flex items-center gap-1.5 transition-colors',
+                      'focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--primary)]/40',
+                      skill === s.id
+                        ? 'bg-[color:var(--primary)] text-white'
+                        : 'text-[color:var(--muted)] hover:bg-[#EEF3FF]'
+                    ].join(' ')}
+                    onClick={() => changeSkill(s.id)}
+                    title={
+                      s.id === 'speaking' ? '🎙️ Practice real IELTS/CELPIP-style questions with recording and feedback.' :
+                      s.id === 'listening' ? '🎧 Watch/Listen and answer comprehension questions.' :
+                      s.id === 'reading' ? '📖 Read and choose/type the correct answers.' :
+                      s.id === 'writing' ? '✍️ Timed writing tasks with word targets.' :
+                      s.id === 'type' ? '⌨️ Type the missing word in context.' : s.label
+                    }
+                  >
+                    <s.icon className={`h-3.5 w-3.5 ${skill === s.id ? 'text-white' : 'text-[color:var(--primary)]'}`} />
+                    <span className="hidden sm:inline">{s.label}</span>
+                    <span className="sm:hidden">{s.short}</span>
+                  </button>
+                ))}
+              </div>
+
+              <button
+                className="inline-flex items-center gap-1 rounded-full border border-[color:var(--panel-border)] bg-white px-3 py-1 text-[color:var(--text)] hover:bg-[#EEF3FF] transition"
+                onClick={() => setScreen('splash')}
+              >
+                <Home className="h-4 w-4 text-[color:var(--primary)]" /> Main menu
+              </button>
+            </div>
           </div>
-        </div>
 
-        {/* Breadcrumb-ish line */}
-        <div className="mt-3 flex items-center gap-2 text-xs text-slate-400">
-          <span>Ruta:</span>
+          {/* Breadcrumb-ish line */}
+          <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-[color:var(--muted)]">
+            <span>Ruta:</span>
+            <span className="inline-flex items-center gap-1">
+              <span>{selectedTypeLabel}</span>
+              <ChevronRight className="h-3.5 w-3.5" />
+              <span className="inline-flex items-center gap-1">
+                <SelectedSkillIcon className="h-3.5 w-3.5 text-[color:var(--primary)]" />
+                {SKILLS.find((s) => s.id === skill)?.label}
+              </span>
+              <ChevronRight className="h-3.5 w-3.5" />
+              <span>{currentList.length} ejercicios</span>
+            </span>
+          </div>
+        </header>
+
+        {/* Summary strip */}
+        <section className="flex flex-wrap items-center gap-3 text-[color:var(--muted)]">
+          <strong className="text-[color:var(--text)]">{selectedTypeLabel}</strong>
+          <span>·</span>
           <span className="inline-flex items-center gap-1">
-            <span>{selectedTypeLabel}</span>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <span className="inline-flex items-center gap-1"><SelectedSkillIcon className="h-3.5 w-3.5" /> {SKILLS.find((s) => s.id === skill)?.label}</span>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <span>{currentList.length} ejercicios</span>
+            <SelectedSkillIcon className="h-4 w-4 text-[color:var(--primary)]" />
+            {SKILLS.find((s) => s.id === skill)?.label}
           </span>
+          <span>·</span>
+          <span className="c-chip" style={{ background: 'rgba(62,100,255,.12)', color: '#1E3A8A' }}>
+            {currentList.length} {currentList.length === 1 ? 'exercise' : 'exercises'}
+          </span>
+        </section>
+
+        {/* Main content */}
+        <div className="space-y-4">
+          {!selectedExercise ? (
+            <div className="c-card p-3">
+              <Accordion items={currentList} onSelect={(ex) => setSelectedExercise(ex)} />
+            </div>
+          ) : (
+            <div className="c-card">
+              <ExerciseDetail exercise={selectedExercise} onBack={() => setSelectedExercise(null)} />
+            </div>
+          )}
         </div>
-      </header>
 
-      {/* Summary strip */}
-      <section className="flex flex-wrap items-center gap-2 text-slate-300">
-        <strong className="text-slate-100">{selectedTypeLabel}</strong>
-        <span>·</span>
-        <span className="inline-flex items-center gap-1"><SelectedSkillIcon className="h-4 w-4" /> {SKILLS.find((s) => s.id === skill)?.label}</span>
-        <span>·</span>
-        <Chip>
-          {currentList.length} {currentList.length === 1 ? 'exercise' : 'exercises'}
-        </Chip>
-      </section>
-
-      {/* Main content */}
-      <div className="space-y-4">
-        {!selectedExercise ? (
-          <Accordion items={currentList} onSelect={(ex) => setSelectedExercise(ex)} />
-        ) : (
-          <ExerciseDetail exercise={selectedExercise} onBack={() => setSelectedExercise(null)} />
-        )}
+        {/* Footer tip */}
+        <footer className="text-sm text[--muted] text-[color:var(--muted)]">
+          Tip: Los JSON pueden incluir hasta <strong>3 respuestas ejemplo</strong> y <strong>verbos sugeridos</strong> por pregunta.
+        </footer>
       </div>
-
-      {/* Footer tip */}
-      <footer className="text-slate-400 text-sm">
-        Tip: Los JSON pueden incluir hasta <strong>3 respuestas ejemplo</strong> y <strong>verbos sugeridos</strong> por pregunta.
-      </footer>
     </div>
   )
 }
-

@@ -1,7 +1,6 @@
 ﻿import React, { useEffect, useRef, useState, useMemo } from "react";
 
 export default function RecorderPro({
-  // Left column shows nothing unless you pass content
   title = "",
   instructions = "",
   filePrefix = "recording",
@@ -43,8 +42,8 @@ export default function RecorderPro({
   }, [mediaRecorder, stream, recognizer]);
 
   function formatTime(s) {
-    const mm = String(Math.floor(s / 60)).padStart(2, "0");
-    const ss = String(s % 60).padStart(2, "0");
+    const mm = String(Math.floor(s / 60)).padStart(2, '0');
+    const ss = String(s % 60).padStart(2, '0');
     return `${mm}:${ss}`;
   }
   function startTimer() {
@@ -127,7 +126,7 @@ export default function RecorderPro({
       startSTT();
     } catch (e) {
       console.error(e);
-      setError("Could not access the microphone. Check browser permissions.");
+      setError("Mic permission denied or unavailable. Check browser settings.");
       setRecording(false);
       stopTimer();
       stopStream(stream);
@@ -171,36 +170,37 @@ export default function RecorderPro({
   const showLeft = Boolean(title?.trim() || instructions?.trim());
   const progressPct = limitSec ? Math.min(100, Math.round((elapsed / limitSec) * 100)) : 0;
 
-  // Heatmap helpers
+  // Heatmap helpers (normaliza con/ sin tildes)
   const norm = (s = "") => s.toString().toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '').trim();
   const spokenText = `${transcriptFinal} ${transcriptInterim}`.trim();
-  const spokenTokens = useMemo(() => new Set(norm(spokenText).split(/[^a-zA-Záéíóúñü]+/).filter(Boolean)), [spokenText]);
-  const normalizedTargets = useMemo(() => (Array.isArray(expectedKeywords) ? expectedKeywords : []).map(norm).filter(Boolean), [expectedKeywords]);
+  const spokenTokens = useMemo(() => new Set(norm(spokenText).split(/[^a-zA-ZáéíóúñüÁÉÍÓÚÑÜ]+/).filter(Boolean)), [spokenText]);
+  const normalizedTargets = useMemo(
+    () => (Array.isArray(expectedKeywords) ? expectedKeywords : []).map(norm).filter(Boolean),
+    [expectedKeywords]
+  );
   const foundMap = useMemo(() => {
     const m = new Map();
     for (const kw of normalizedTargets) m.set(kw, spokenTokens.has(kw));
     return m;
   }, [normalizedTargets, spokenTokens]);
 
-  // Circle timer component
+  // Circle timer (usa tokens del tema)
   const CircleTimer = ({ size = 44, stroke = 5, pct = 0, warning = false }) => {
     const r = (size - stroke) / 2;
     const c = 2 * Math.PI * r;
     const off = c * (1 - Math.min(1, Math.max(0, pct / 100)));
     return (
       <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className="shrink-0">
-        <circle cx={size/2} cy={size/2} r={r} stroke="#0f172a" strokeWidth={stroke} fill="none" />
+        <circle cx={size/2} cy={size/2} r={r} stroke="var(--panel-border)" strokeWidth={stroke} fill="none" />
         <circle
-          cx={size/2}
-          cy={size/2}
-          r={r}
-          stroke={warning ? '#f59e0b' : '#22c55e'}
+          cx={size/2} cy={size/2} r={r}
+          stroke={warning ? 'var(--primary)' : '#1B8754'}
           strokeWidth={stroke}
           fill="none"
           strokeDasharray={c}
           strokeDashoffset={off}
           strokeLinecap="round"
-          style={{ transition: 'stroke-dashoffset 0.2s linear' }}
+          style={{ transition: 'stroke-dashoffset .2s linear' }}
         />
       </svg>
     );
@@ -208,18 +208,17 @@ export default function RecorderPro({
 
   return (
     <div className={`w-full grid ${showLeft ? "grid-cols-1 md:grid-cols-2" : "grid-cols-1"} gap-4 md:gap-6`}>
-      {/* Izquierda: SOLO si envÃ­as contenido */}
+      {/* Left (opcional) */}
       {showLeft && (
-        <section className="rounded-2xl border border-slate-800 bg-slate-900/50 p-4 md:p-6 shadow">
-          {/* Sin textos de relleno */}
+        <section className="rounded-2xl border border-[color:var(--panel-border)] bg-white p-5 shadow">
           {title?.trim() && (
             <header className="mb-3">
-              <h2 className="text-slate-100 text-lg md:text-xl font-semibold">{title}</h2>
+              <h2 className="text-[color:var(--text)] text-xl font-extrabold tracking-tight">{title}</h2>
             </header>
           )}
           {instructions?.trim() && (
-            <div className="prose prose-invert max-w-none text-slate-200">
-              <pre className="whitespace-pre-wrap break-words bg-slate-900/60 rounded-xl p-4 border border-slate-800">
+            <div className="max-w-none text-[color:var(--text)]">
+              <pre className="whitespace-pre-wrap break-words bg-white rounded-xl p-4 border border-[color:var(--panel-border)] text-[.95rem] leading-6">
 {instructions}
               </pre>
             </div>
@@ -227,21 +226,31 @@ export default function RecorderPro({
         </section>
       )}
 
-      {/* Derecha: panel de grabaciÃ³n */}
-      <section className="rounded-2xl border border-slate-800 bg-slate-900/50 p-4 md:p-6 shadow flex flex-col gap-4">
+      {/* Right: recorder */}
+      <section className="rounded-2xl border border-[color:var(--panel-border)] bg-white p-5 shadow flex flex-col gap-5">
+        {/* Toolbar */}
         <div className="flex flex-wrap items-center gap-3">
           {!recording ? (
-            <button className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold shadow w-full sm:w-auto" onClick={startRecording}>
-              â— Record
+            <button
+              className="btn-solid-emerald w-full sm:w-auto"
+              onClick={startRecording}
+            >
+              ● Record
             </button>
           ) : (
-            <button className="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-semibold shadow w-full sm:w-auto" onClick={stopRecording}>
-              â–  Stop
+            <button
+              className="btn-solid-rose w-full sm:w-auto"
+              onClick={stopRecording}
+            >
+              ■ Stop
             </button>
           )}
 
           <span
-            className={`px-3 py-1 rounded-full text-sm font-mono ${recording ? "bg-amber-500/15 text-amber-300 ring-1 ring-amber-400" : "bg-slate-800 text-slate-300"}`}
+            className={[
+              "time-chip font-mono",
+              recording ? "time-chip--live" : ""
+            ].join(" ")}
             title={limitSec ? `${formatTime(elapsed)} / ${formatTime(limitSec)}` : formatTime(elapsed)}
           >
             {formatTime(elapsed)}{limitSec ? ` / ${formatTime(limitSec)}` : ""}
@@ -252,15 +261,15 @@ export default function RecorderPro({
           )}
 
           {limitSec > 0 && (
-            <div className="flex-1 h-2 bg-slate-800 rounded-full overflow-hidden">
-              <div className="h-2 bg-amber-400 transition-[width] duration-200" style={{ width: `${progressPct}%` }} />
+            <div className="flex-1 h-2 rounded-full bg-[#E9EEF7] overflow-hidden min-w-[140px]">
+              <div className="h-2 progress-grad" style={{ width: `${progressPct}%` }} />
             </div>
           )}
 
           <div className="ml-auto flex items-center gap-2">
-            <label className="text-slate-300 text-sm">STT language</label>
+            <label className="text-[color:var(--muted)] text-sm">STT language</label>
             <select
-              className="bg-slate-900 border border-slate-700 text-slate-100 text-sm rounded-lg px-2 py-1"
+              className="select-soft"
               value={recLang}
               onChange={(e) => setRecLang(e.target.value)}
               disabled={recording}
@@ -274,45 +283,75 @@ export default function RecorderPro({
               <option value={sttDefaultLang}>{sttDefaultLang}</option>
             </select>
 
-            <label className="inline-flex items-center gap-2 text-slate-300 text-sm">
-              <input type="checkbox" className="accent-emerald-500" checked={sttEnabled} onChange={(e) => setSttEnabled(e.target.checked)} disabled={recording} />
+            <label className="inline-flex items-center gap-2 text-[color:var(--muted)] text-sm">
+              <input
+                type="checkbox"
+                className="accent-emerald-500"
+                checked={sttEnabled}
+                onChange={(e) => setSttEnabled(e.target.checked)}
+                disabled={recording}
+              />
               STT enabled
             </label>
           </div>
         </div>
 
-        {error && <p className="text-rose-400 text-sm">{error}</p>}
+        {error && (
+          <p className="inline-flex items-center gap-2 px-3 py-2 rounded-lg text-sm bg-[#FFE8EA] text-[#9B1C31] border border-[#F7C2CA]">
+            ⚠️ {error}
+          </p>
+        )}
 
         {audioURL && (
           <div className="flex items-center gap-3">
             <audio controls src={audioURL} className="w-full" />
-            <a className="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-100 text-sm" href={audioURL} download={filename}>
-              Descargar audio
+            <a className="btn-soft" href={audioURL} download={filename}>
+              ⬇️ Descargar audio
             </a>
           </div>
         )}
 
-        <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-3">
-          <div className="text-slate-400 text-xs mb-2">Live transcription</div>
-          <div className="space-y-2">
-            <div className="text-slate-100 text-sm leading-relaxed">
+        {recording && (
+          <div className="flex items-center gap-2 text-[color:var(--muted)]">
+            <span className="text-xs">Live</span>
+            <div className="eq-bars" aria-hidden>
+              <span className="bar" />
+              <span className="bar" />
+              <span className="bar" />
+              <span className="bar" />
+              <span className="bar" />
+            </div>
+          </div>
+        )}
+
+        {/* Transcripción */}
+        <div className="rounded-xl border border-[color:var(--panel-border)] bg-white p-4">
+          <div className="text-[color:var(--muted)] text-xs mb-2 font-semibold">Live transcription</div>
+
+          <div className="space-y-3">
+            <div className="text-[color:var(--text)] text-sm leading-relaxed">
               {transcriptFinal}
-              {transcriptInterim && <span className="text-slate-300/80 italic">{" "}{transcriptInterim}</span>}
+              {transcriptInterim && (
+                <span className="text-[color:var(--muted)]/85 italic">{" "}{transcriptInterim}</span>
+              )}
             </div>
 
             {normalizedTargets.length ? (
-              <div className="pt-2">
-                <div className="text-xs text-slate-400 mb-1">Pronunciation heatmap</div>
+              <div className="pt-1">
+                <div className="text-xs text-[color:var(--muted)] mb-1 font-semibold">Pronunciation heatmap</div>
                 <div className="flex flex-wrap gap-1.5">
                   {normalizedTargets.map((kw) => {
                     const ok = foundMap.get(kw);
                     return (
-                      <span key={kw} className={[
-                        'inline-flex items-center gap-1 px-2 py-0.5 rounded-full border text-xs',
-                        ok ? 'border-emerald-600/50 bg-emerald-900/30 text-emerald-300' : 'border-rose-600/50 bg-rose-900/20 text-rose-300'
-                      ].join(' ')}>
-                        {kw}
-                        {ok ? '✓' : '•'}
+                      <span
+                        key={kw}
+                        className={[
+                          'kw-chip',
+                          ok ? 'kw-ok' : 'kw-bad'
+                        ].join(' ')}
+                        title={ok ? 'Detected ✓' : 'Not detected'}
+                      >
+                        {kw} {ok ? '✓' : '✗'}
                       </span>
                     );
                   })}
@@ -321,22 +360,27 @@ export default function RecorderPro({
             ) : null}
 
             <div className="flex flex-wrap gap-2 pt-2">
-              <button className="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-100 text-sm disabled:opacity-50" onClick={copyTranscript} disabled={!transcriptFinal && !transcriptInterim}>
-                Copy text
+              <button className="btn-soft" onClick={copyTranscript} disabled={!transcriptFinal && !transcriptInterim}>
+                📋 Copy text
               </button>
-              <button className="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-100 text-sm disabled:opacity-50" onClick={downloadTranscript} disabled={!transcriptFinal && !transcriptInterim}>
-                Download TXT
+              <button className="btn-soft" onClick={downloadTranscript} disabled={!transcriptFinal && !transcriptInterim}>
+                ⤓ Download TXT
               </button>
-              <button className="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-100 text-sm" onClick={() => { setTranscriptFinal(""); setTranscriptInterim(""); }} title="Clear transcripciÃ³n">
-                Clear
+              <button
+                className="btn-soft"
+                onClick={() => { setTranscriptFinal(""); setTranscriptInterim(""); }}
+                title="Clear transcription"
+              >
+                🗑 Clear
               </button>
             </div>
           </div>
         </div>
 
-        <p className="text-xs text-slate-500">Note: Speech recognition depends on browser support (Chrome recommended).</p>
+        <p className="text-xs text-[color:var(--muted)]">
+          Note: Speech recognition depends on browser support (Chrome recommended).
+        </p>
       </section>
     </div>
   );
 }
-

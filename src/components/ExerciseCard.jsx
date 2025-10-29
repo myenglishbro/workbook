@@ -10,54 +10,83 @@ export default function ExerciseCard({ exercise }) {
     examples = [],
     verbs = [],
     timeLimitSec,
-    imageUrl, // ðŸ‘ˆ importante
+    imageUrl,
     title,
   } = exercise
 
+  const pretty = (s) => {
+    if (!Number.isFinite(s)) return null
+    const mm = String(Math.floor(s / 60)).padStart(2, '0')
+    const ss = String(s % 60).padStart(2, '0')
+    return `${mm}:${ss}`
+  }
+
+  const skillLabel = skill.charAt(0).toUpperCase() + skill.slice(1)
+
   return (
-    <article className="exercise">
-      <header className="exercise-header">
-        <div className="badge">{type?.toUpperCase?.() || 'EXAM'}</div>
-        <div className="badge">{skill.charAt(0).toUpperCase() + skill.slice(1)}</div>
-        <h3 className="question">{title || question}</h3>
+    <article className="c-card p-5 sm:p-6">
+      {/* Header */}
+      <header className="mb-4 sm:mb-5 flex flex-wrap items-center gap-2">
+        <span className="c-chip">{(type?.toUpperCase?.()) || 'EXAM'}</span>
+        <span className="c-chip">{skillLabel}</span>
+        {Number.isFinite(timeLimitSec) && (
+          <span className="c-chip c-chip--ghost" title="Time limit">
+            ⏱ {pretty(timeLimitSec)}
+          </span>
+        )}
       </header>
 
-      {/* ðŸ‘‡ NUEVO: Mostrar imagen si existe */}
+      {/* Title / Question */}
+      <h3 className="text-xl sm:text-2xl font-extrabold text-[color:var(--text)] leading-snug">
+        {title || question}
+      </h3>
+
+      {/* Image */}
       {imageUrl ? (
-        <figure className="my-3">
+        <figure className="mt-4 overflow-hidden rounded-xl border border-[color:var(--panel-border)] bg-white">
           <img
             src={imageUrl}
             alt={title || question}
-            className="w-full max-h-48 object-cover rounded-lg border border-slate-700 shadow-md"
+            className="w-full aspect-[16/9] object-cover transition-transform duration-300 hover:scale-[1.02]"
             loading="lazy"
-            onError={(e) => {
-              // si falla la carga, la ocultamos
-              e.currentTarget.style.display = 'none'
-            }}
+            onError={(e) => { e.currentTarget.style.display = 'none' }}
           />
         </figure>
       ) : null}
 
+      {/* Verbs */}
       {verbs?.length ? (
-        <div className="verbs">
-          <strong>Suggested verbs:</strong>
-          <span>{verbs.join(', ')}</span>
-        </div>
+        <section className="mt-4">
+          <h4 className="c-sec-title">Suggested verbs</h4>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {verbs.slice(0, 12).map((v, i) => (
+              <span key={i} className="c-tag">{v}</span>
+            ))}
+          </div>
+        </section>
       ) : null}
 
+      {/* Examples */}
       {examples?.length ? (
-        <div className="examples">
-          <strong>Examples (3):</strong>
-          <ul>
+        <section className="mt-4">
+          <h4 className="c-sec-title">Examples (max 3)</h4>
+          <ul className="mt-2 grid gap-2">
             {examples.slice(0, 3).map((ej, idx) => (
-              <li key={idx}>{ej}</li>
+              <li key={idx} className="c-list-item">
+                {ej}
+              </li>
             ))}
           </ul>
-        </div>
+        </section>
       ) : null}
 
-      {/* ðŸ”Š Grabadora */}
-      <Recorder filePrefix={`${id || type}-respuesta`} limitSec={timeLimitSec} />
+      {/* Recorder */}
+      <section className="mt-5">
+        <h4 className="c-sec-title">Your response</h4>
+        <div className="mt-2">
+          <Recorder filePrefix={`${id || type}-respuesta`} limitSec={timeLimitSec} />
+        </div>
+      </section>
     </article>
   )
 }

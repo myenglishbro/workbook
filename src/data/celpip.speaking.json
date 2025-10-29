@@ -1,88 +1,157 @@
 ﻿[
-    {
-        "id":  "celpip-1",
-        "type":  "celpip",
-        "skill":  "speaking",
-        "task":  1,
-        "title":  "Parque favorito",
-        "question":  "Describe un parque que visitas a menudo y por quÃ© te gusta.",
-        "imageUrl":  "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200",
-        "verbs":  [
-                      "describe",
-                      "visit",
-                      "enjoy",
-                      "relax",
-                      "located"
-                  ],
-        "examples":  [
-                         "Suelo visitar un parque cerca de mi casa porque es tranquilo y amplio.",
-                         "Me gusta ir por la maÃ±ana; el aire fresco me ayuda a concentrarme.",
-                         "EstÃ¡ ubicado a diez minutos; allÃ­ camino, leo y despejo la mente."
-                     ],
-        "timeLimitSec":  90
-    },
-    {
-        "id":  "celpip-2",
-        "type":  "celpip",
-        "skill":  "speaking",
-        "task":  1,
-        "title":  "DecisiÃ³n difÃ­cil",
-        "question":  "Habla de una decisiÃ³n difÃ­cil que tomaste recientemente.",
-        "verbs":  [
-                      "decide",
-                      "consider",
-                      "choose",
-                      "explain",
-                      "affect"
-                  ],
-        "examples":  [
-                         "Tuve que decidir cambiar de trabajo para crecer profesionalmente.",
-                         "ConsiderÃ© los pros y contras, especialmente el equilibrio con mi familia.",
-                         "Finalmente elegÃ­ el nuevo puesto porque ofrece aprendizaje continuo."
-                     ],
-        "timeLimitSec":  90
-    },
-    {
-        "id":  "celpip-3",
-        "type":  "celpip",
-        "skill":  "speaking",
-        "task":  2,
-        "title":  "RecomendaciÃ³n a un amigo",
-        "question":  "Recomienda un lugar para visitar a un amigo que llega a tu ciudad.",
-        "verbs":  [
-                      "recommend",
-                      "suggest",
-                      "visit",
-                      "enjoy",
-                      "experience"
-                  ],
-        "examples":  [
-                         "Te recomiendo el centro histÃ³rico por su arquitectura.",
-                         "Hay cafÃ©s y museos que muestran la cultura local.",
-                         "Es fÃ¡cil llegar en transporte pÃºblico."
-                     ],
-        "timeLimitSec":  90
-    },
-    {
-        "id":  "celpip-4",
-        "type":  "celpip",
-        "skill":  "speaking",
-        "task":  2,
-        "title":  "Plan de fin de semana",
-        "question":  "Sugiere un plan de fin de semana para visitar la ciudad.",
-        "imageUrl":  "https://i.ibb.co/DfcRsb39/Gemini-Generated-Image-ms9uzhms9uzhms9u.png",
-        "verbs":  [
-                      "suggest",
-                      "plan",
-                      "enjoy",
-                      "explore",
-                      "arrive"
-                  ],
-        "examples":  [
-                         "Explorar el centro y probar comida local.",
-                         "Visitar parques y mercados al aire libre.",
-                         "Terminar con un museo o concierto."
-                     ],
-        "timeLimitSec":  90
-    }
+  {
+  "id": "celpip-1",
+  "type": "celpip",
+  "skill": "speaking",
+  "task": 1,
+  "title": "Giving Advice – Remembering Lunch",
+  "question": "Today is your co-worker’s first day at work, and he forgot to bring his lunch. Advise him on how he can remember to bring his lunch in the future.",
+  "imageUrl": "",
+  "verbs": [
+    "prepare",
+    "pack",
+    "organize",
+    "set",
+    "remember",
+    "check",
+    "place",
+    "remind",
+    "keep",
+    "make sure",
+    "forget",
+    "bring",
+    "set up",
+    "lay out",
+    "pack up",
+    "write down",
+    "leave out",
+    "go over",
+    "wake up",
+    "head out",
+    "get ready"
+  ],
+  "examples": [
+    "B2: If my co-worker forgot to bring his lunch, I would tell him to prepare it the night before. He could pack it and put it in the fridge so he doesn’t need to rush in the morning. I would also suggest leaving a reminder on his phone or sticking a note near the door. This way, he will see it before leaving for work. Finally, he could keep his lunch bag beside his keys or backpack so it’s easy to grab before going out.",
+    "C1: I’d start by suggesting that my co-worker prepare everything the night before. For example, he could pack his lunch, place it in the fridge, and leave his bag close to the door. The next morning, setting a phone reminder or an alarm labeled ‘Take your lunch!’ would also help. Another good idea is to keep reusable containers ready and wash them right after dinner, so preparing lunch becomes part of his evening routine. With small habits like these, forgetting will almost never happen again.",
+    "C2: I’d recommend building a consistent daily system rather than depending on memory. The night before, he could pack his lunch, put it in the fridge, and place a visual cue — like his lunch bag beside his office ID — near the exit. Setting an automated phone reminder in the morning reinforces the habit. Over time, this structured routine eliminates decision fatigue, making it effortless to bring lunch every day while projecting reliability and organization at work."
+  ],
+  "examinerTip": "TEMPLATE CELPIP TASK 1 – GIVING ADVICE\n\n1️⃣ Opening / Empathy:\nStart with a friendly, understanding tone.\nExample: 'I understand it’s stressful to forget something on your first day.'\n\n2️⃣ Main Advice (2–3 clear steps):\nGive practical suggestions in logical order.\nExample: 'First, prepare the lunch the night before. Then, place it in the fridge and set a reminder on your phone. Finally, keep it near your bag or keys so you won’t forget.'\n\n3️⃣ Closing / Encouragement:\nEnd positively and motivate the person.\nExample: 'If you follow these steps, you’ll easily remember next time and feel more organized.'\n\n⭐ Use connectors: first, then, next, finally.\n⭐ Justify each suggestion with a reason: so he won’t forget, to save time in the morning.\n⭐ Keep your tone natural, confident, and concise.",
+  "timeLimitSec": 120
+}
+
+
+,
+  {
+    "id": "celpip-2",
+    "type": "celpip",
+    "skill": "speaking",
+    "task": 2,
+    "title": "Personal Experience – Favorite City Spot",
+    "question": "Talk about a place in your city that you visit often and really enjoy.",
+    "verbs": ["visit", "enjoy", "relax", "spend", "feel"],
+    "examples": [
+      "B2: My favorite spot is the central park. I go there on weekends to walk along the lake, read under the trees, and enjoy the fresh air. The paths are wide, there are flowers in spring, and it’s quiet enough to relax after a long week.",
+      "C1: I especially love the small café next to the park. It has big windows facing the trees, soft music, and friendly staff who already know my order. On Sundays I journal there for an hour, watching people pass by. It feels like a ritual that helps me slow down in a busy city.",
+      "C2: What makes this area special is the contrast it offers: a calm, green pocket surrounded by traffic and tall buildings. After a stressful week, spending time there resets my mind. I leave with a clearer perspective, which often leads to better decisions and a more positive attitude for the days ahead."
+    ],
+    "examinerTip": "Empieza con el lugar, describe 2–3 detalles sensoriales, y termina con el efecto emocional o el hábito que generaste (ritual, bienestar, claridad mental).",
+    "timeLimitSec": 120
+  },
+  {
+    "id": "celpip-3",
+    "type": "celpip",
+    "skill": "speaking",
+    "task": 3,
+    "title": "Describing a Scene – A Day in the Park",
+    "question": "Describe what you see in the image. What do you think about this kind of public place?",
+    "imageUrl": "https://i.ibb.co/DfcRsb39/Gemini-Generated-Image-ms9uzhms9uzhms9u.png",
+    "verbs": ["see", "sit", "play", "enjoy", "relax"],
+    "examples": [
+      "B2: The image shows a sunny park with families walking, children playing on the grass, and a few people sitting on benches. The atmosphere looks friendly and relaxed. Places like this help people disconnect from stress and spend time together.",
+      "C1: I notice a mix of activities — jogging, reading, picnics, even someone playing guitar near a fountain. This variety makes the park feel inclusive. In my view, such spaces are essential because they encourage exercise, conversation, and mental well‑being.",
+      "C2: Beyond recreation, parks create a sense of civic life; they are shared, democratic spaces where people of different backgrounds coexist without barriers. That simple experience of being around others peacefully can strengthen empathy and social trust."
+    ],
+    "examinerTip": "Describe 1) elementos visuales, 2) actividades, 3) opinión personal/impacto social. Usa adjetivos sensoriales y conectores: ‘meanwhile’, ‘in contrast’, ‘as a result’.",
+    "timeLimitSec": 120
+  },
+  {
+    "id": "celpip-4",
+    "type": "celpip",
+    "skill": "speaking",
+    "task": 4,
+    "title": "Making Predictions – The City’s Future",
+    "question": "How do you think your city will change in the next 10 years?",
+    "verbs": ["think", "develop", "improve", "become", "change"],
+    "examples": [
+      "B2: In ten years my city will likely have more electric buses, bike lanes, and cleaner air. I also expect new parks and better recycling systems. Daily life might be easier but faster, so we’ll need balance.",
+      "C1: I imagine smarter services — sensors for lighting, real‑time traffic control, and buildings with green rooftops. Public transport could be cheaper and more frequent, which would reduce congestion and make neighborhoods more connected.",
+      "C2: The real challenge will be equity. As the city modernizes, housing might become expensive. Leaders must pair innovation with policies that protect affordability and public space; otherwise, progress will feel exclusive instead of shared."
+    ],
+    "examinerTip": "Haz 3 predicciones y justifícalas (transporte, sostenibilidad, vida social). Añade un riesgo y una recomendación para mostrar matiz (C1/C2).",
+    "timeLimitSec": 120
+  },
+  {
+    "id": "celpip-5",
+    "type": "celpip",
+    "skill": "speaking",
+    "task": 5,
+    "title": "Comparing Options – How to Commute",
+    "question": "Your friend can either drive or ride a bicycle to work. Compare both options and say which is better.",
+    "verbs": ["compare", "choose", "prefer", "save", "cost"],
+    "examples": [
+      "B2: Cycling is cheaper and healthier, but driving is faster on long distances and in bad weather. If the workplace is close, I would choose the bike to save money and stay active.",
+      "C1: A fair comparison weighs cost, time, comfort, and flexibility. Cars win for carrying items and longer trips; bikes win for fitness and the environment. For a 5–8 km commute, cycling usually offers the best balance.",
+      "C2: In the long term, the bicycle builds consistent well‑being and reduces urban congestion. Unless there are safety issues or extreme weather, I’d recommend a ‘bike‑first’ approach with occasional driving as a backup."
+    ],
+    "examinerTip": "Compara con 2–3 criterios (coste, tiempo, comodidad). Concluye con una recomendación clara y una condición (‘if distance is…’).",
+    "timeLimitSec": 120
+  },
+  {
+    "id": "celpip-6",
+    "type": "celpip",
+    "skill": "speaking",
+    "task": 6,
+    "title": "Dealing with a Difficult Situation – Noisy Neighbor",
+    "question": "Your neighbor often makes loud noise late at night. What would you do to handle this problem?",
+    "verbs": ["talk", "explain", "understand", "ask", "solve"],
+    "examples": [
+      "B2: I would speak politely with my neighbor and explain that the late noise makes it hard to sleep. I’d ask for quiet hours after 10 pm. If it continued, I’d talk to the building manager.",
+      "C1: I’d choose a calm moment, describe the impact on my rest, and suggest a practical solution such as headphones, moving speakers, or setting weekend hours. Most conflicts improve with empathy and clarity.",
+      "C2: If dialogue failed, I’d keep a short log of incidents and escalate formally, but only after offering alternatives. The aim is to protect rest while maintaining a respectful relationship."
+    ],
+    "examinerTip": "Estructura: 1) diálogo educado, 2) propuesta concreta, 3) plan B si no funciona. Usa lenguaje diplomático (‘I’d appreciate if…’).",
+    "timeLimitSec": 120
+  },
+  {
+    "id": "celpip-7",
+    "type": "celpip",
+    "skill": "speaking",
+    "task": 7,
+    "title": "Expressing Opinions – Parks in Cities",
+    "question": "Some people think parks are a waste of space in cities. Do you agree or disagree?",
+    "verbs": ["agree", "disagree", "believe", "provide", "improve"],
+    "examples": [
+      "B2: I disagree. Parks give people a place to relax, exercise, and meet friends. They make cities healthier and friendlier, not a waste of space.",
+      "C1: Parks improve mental health, encourage community events, and reduce heat and pollution. Without them, cities feel stressful and impersonal. Green areas balance modern life.",
+      "C2: From a planning perspective, parks are public investments that pay off through better health outcomes, social cohesion, and higher property values. Removing them would be shortsighted."
+    ],
+    "examinerTip": "Declara tu postura y ofrece 2–3 razones con impacto (salud, comunidad, medio ambiente). Cierra con una conclusión contundente.",
+    "timeLimitSec": 120
+  },
+  {
+    "id": "celpip-8",
+    "type": "celpip",
+    "skill": "speaking",
+    "task": 8,
+    "title": "Describing an Unusual Situation – A Sudden Event",
+    "question": "You are walking through the park when something unexpected happens. Explain what happened and how you reacted.",
+    "verbs": ["happen", "see", "help", "react", "feel"],
+    "examples": [
+      "While passing through the park one afternoon, I suddenly heard a child crying loudly near the playground. When I looked closer, I saw a little boy who had dropped his ice cream, and he was completely heartbroken. I went over, crouched beside him, and said softly, 'It’s okay, accidents happen.' Then I asked where his parents were, and we looked around together until his father appeared. The man thanked me for helping calm him down. Even though it was a small event, it reminded me how a kind word and calm attitude can turn an upsetting situation into a positive one.",
+      "One day as I was walking past the park’s fountain, I heard a sudden commotion — a little boy had lost hold of his red balloon and burst into tears. I approached him gently, made sure he felt safe, and told him we’d find his parents together. After scanning the area, I noticed a woman waving frantically near the benches. The boy ran to her, and she hugged him tightly. She thanked me repeatedly, which made me realize how simple actions, like staying calm and showing empathy, can make a real difference. It was a touching moment I’ll never forget.",
+      "While passing the playground, a sudden commotion caught my attention. A small boy had accidentally released his red balloon and, overwhelmed by disappointment, began to cry loudly. I approached him slowly so he wouldn’t feel scared, crouched to his level, and said softly, 'It’s okay to feel upset; we can fix this together.' After he calmed down a little, I asked for his mother’s name and suggested we look around carefully. Within moments, I noticed a woman scanning the crowd near the benches, clearly worried. I pointed her out, and the boy immediately ran toward her, tears turning into a smile. His mother thanked me repeatedly for helping. As I continued my walk, I realized how small gestures—empathy, calm speech, and quick thinking—can completely transform a stressful situation into a moment of relief and connection between strangers."
+    ],
+    "examinerTip": "Structure your answer: 1) describe the unexpected event, 2) explain your reaction step by step, 3) finish with a reflection or lesson learned. Use connectors such as 'suddenly', 'at first', 'eventually', 'as a result'.",
+    "timeLimitSec": 120
+  }
 ]

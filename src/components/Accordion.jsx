@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
-// Logic preserved — only UI/UX styling tweaks with Tailwind.
+// Lógica idéntica — solo UI/UX (light theme)
 function groupByTask(items) {
   const map = new Map()
   for (const it of items || []) {
@@ -25,10 +25,9 @@ export default function Accordion({ items, onSelect }) {
     })
   }
 
-  if (!items?.length)
-    return (
-      <p className="text-slate-400 italic text-sm">No exercises available.</p>
-    )
+  if (!items?.length) {
+    return <p className="text-[color:var(--muted)] italic text-sm">No exercises available.</p>
+  }
 
   return (
     <div className="space-y-4">
@@ -38,18 +37,17 @@ export default function Accordion({ items, onSelect }) {
           <section
             key={task}
             className={[
-              'rounded-2xl border bg-slate-900/60 backdrop-blur',
-              'border-slate-800 shadow-sm shadow-black/10 overflow-hidden',
-              isOpen ? 'ring-1 ring-amber-400/20' : '',
+              'c-card overflow-hidden transition-shadow',
+              isOpen ? 'ring-1 ring-[color:var(--primary)]/10' : ''
             ].join(' ')}
           >
             {/* Header */}
             <button
               type="button"
               className={[
-                'w-full grid grid-cols-[1fr_auto_28px] items-center gap-3 px-4 sm:px-5 py-3.5',
-                'text-left transition-colors border-b border-slate-800',
-                'hover:bg-slate-800/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/60',
+                'w-full grid grid-cols-[1fr_auto_32px] items-center gap-3 px-4 sm:px-5 py-3.5',
+                'text-left border-b border-[color:var(--panel-border)]',
+                'hover:bg-[#F7FAFF] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--primary)]/40 rounded-t-[20px]'
               ].join(' ')}
               onClick={() => toggle(task)}
               aria-expanded={isOpen}
@@ -57,23 +55,24 @@ export default function Accordion({ items, onSelect }) {
               id={`header-${task}`}
             >
               <div className="flex items-center gap-2 min-w-0">
-                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-800 text-xs font-semibold text-slate-300 border border-slate-700">
+                <span className="inline-grid place-items-center h-6 w-6 rounded-full border border-[color:var(--panel-border)] bg-white text-xs font-bold text-[color:var(--primary)]">
                   {task}
                 </span>
-                <span className="font-semibold text-slate-100 truncate">Task {task}</span>
+                <span className="font-extrabold text-[color:var(--text)] truncate">
+                  Task {task}
+                </span>
               </div>
 
-              <span className="inline-flex items-center gap-2 text-slate-300 text-sm">
-                <span className="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700 text-xs">
+              <span className="inline-flex items-center gap-2 text-[color:var(--muted)] text-sm">
+                <span className="px-2 py-0.5 rounded-full bg-[#EEF3FF] text-[#1E3A8A] text-xs font-bold">
                   {list.length} {list.length === 1 ? 'exercise' : 'exercises'}
                 </span>
               </span>
 
               <span
                 className={[
-                  'h-7 w-7 inline-flex items-center justify-center rounded-md border border-slate-700',
-                  'bg-slate-800 text-slate-300 transition-transform',
-                  isOpen ? 'rotate-180' : '',
+                  'h-8 w-8 inline-grid place-items-center rounded-md border border-[color:var(--panel-border)] bg-white text-[color:var(--muted)] transition-transform',
+                  isOpen ? 'rotate-180' : ''
                 ].join(' ')}
                 aria-hidden
               >
@@ -99,41 +98,64 @@ export default function Accordion({ items, onSelect }) {
                 >
                   <ul className="space-y-2.5">
                     {list.map((ex) => (
-                      <motion.li key={ex.id}
+                      <motion.li
+                        key={ex.id}
                         initial={{ opacity: 0, y: 6 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.18 }}
                       >
-                        <button
+                        <motion.button
                           type="button"
                           className={[
                             'w-full text-left rounded-xl border p-3.5 sm:p-4 transition',
-                            'bg-slate-900/70 border-slate-800 hover:border-slate-700 hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/60',
-                            'hover:-translate-y-0.5',
+                            'bg-white border-[color:var(--panel-border)] hover:bg-[#F7FAFF] hover:border-[color:var(--primary)]/30',
+                            'focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--primary)]/40'
                           ].join(' ')}
                           onClick={() => onSelect?.(ex)}
                           title="Open exercise"
+                          whileHover={{ scale: 1.01 }}
+                          transition={{ type: 'spring', stiffness: 400, damping: 20, duration: 0.12 }}
                         >
                           <div className="flex items-center gap-2">
-                            <span className="block font-semibold text-slate-100 truncate">
+                            <span className="block font-extrabold text-[color:var(--text)] truncate">
                               {ex.title || ex.question || 'Exercise'}
                             </span>
+
+                            {/* Badge por nivel (pastel) */}
                             {(() => {
                               const lvl = ex.level || (ex.task >= 3 ? 'Advanced' : ex.task === 2 ? 'Intermediate' : 'Beginner')
-                              const cls = lvl === 'Advanced'
-                                ? 'border-fuchsia-500/50 bg-fuchsia-900/20 text-fuchsia-300'
-                                : lvl === 'Intermediate'
-                                  ? 'border-amber-500/50 bg-amber-900/20 text-amber-300'
-                                  : 'border-emerald-500/50 bg-emerald-900/20 text-emerald-300'
-                              return <span className={`inline-flex items-center px-2 py-0.5 rounded-full border text-[10px] ${cls}`}>{lvl}</span>
+                              const cls =
+                                lvl === 'Advanced'
+                                  ? 'bg-[#F6E8FF] text-[#6B4DE6]'
+                                  : lvl === 'Intermediate'
+                                  ? 'bg-[#FFF2D9] text-[#C66B00]'
+                                  : 'bg-[#EAF7EE] text-[#1B8754]'
+                              return (
+                                <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold ${cls}`}>
+                                  {lvl}
+                                </span>
+                              )
                             })()}
                           </div>
+
                           {(ex.question || ex.subtitle) && (
-                            <span className="block text-slate-400 text-sm mt-0.5 line-clamp-2">
+                            <span className="block text-[color:var(--muted)] text-sm mt-0.5 line-clamp-2">
                               {ex.subtitle || ex.question}
                             </span>
                           )}
-                        </button>
+
+                          {/* Mini progress opcional si envías ex.progress (0–100) */}
+                          {typeof ex.progress === 'number' && (
+                            <div className="mt-2">
+                              <div className="h-1.5 rounded-full bg-[#E9EEF7] overflow-hidden">
+                                <span
+                                  className="block h-full bg-[color:var(--primary)]"
+                                  style={{ width: `${Math.min(100, Math.max(0, ex.progress))}%` }}
+                                />
+                              </div>
+                            </div>
+                          )}
+                        </motion.button>
                       </motion.li>
                     ))}
                   </ul>
