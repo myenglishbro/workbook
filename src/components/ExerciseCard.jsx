@@ -37,7 +37,7 @@ export default function ExerciseCard({ exercise }) {
       </header>
 
       {/* Title / Question */}
-      <h3 className="text-xl sm:text-2xl font-extrabold text-[color:var(--text)] leading-snug">
+      <h3 className="text-xl sm:text-2xl font-extrabold text-[color:var(--text)] leading-snug preline">
         {title || question}
       </h3>
 
@@ -72,7 +72,7 @@ export default function ExerciseCard({ exercise }) {
           <h4 className="c-sec-title">Examples (max 3)</h4>
           <ul className="mt-2 grid gap-2">
             {examples.slice(0, 3).map((ej, idx) => (
-              <li key={idx} className="c-list-item">
+              <li key={idx} className="c-list-item preline">
                 {ej}
               </li>
             ))}

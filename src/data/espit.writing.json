@@ -1,0 +1,47 @@
+[
+  {
+    "id": "espit-w1",
+    "type": "espit",
+    "skill": "writing",
+    "task": 1,
+    "title": "Write a Clear Status Update",
+    "question": "Write a concise status update to stakeholders about a delayed release. Include cause, impact, next steps, and ETA.",
+    "timeLimitSec": 900,
+    "targetWords": 150,
+    "minWords": 120
+  }
+  ,
+  {
+    "id": "espit-w2",
+    "type": "espit",
+    "skill": "writing",
+    "task": 2,
+    "title": "Write a User Story with AC",
+    "question": "As a Product Manager, write a user story for ‘Save for later’ with 3 acceptance criteria.",
+    "timeLimitSec": 900,
+    "targetWords": 130,
+    "minWords": 100
+  },
+  {
+    "id": "espit-w3",
+    "type": "espit",
+    "skill": "writing",
+    "task": 3,
+    "title": "Incident Summary (Developer)",
+    "question": "Write a clear incident summary: cause, scope, mitigation, and prevention.",
+    "timeLimitSec": 900,
+    "targetWords": 150,
+    "minWords": 120
+  },
+  {
+    "id": "espit-w4",
+    "type": "espit",
+    "skill": "writing",
+    "task": 4,
+    "title": "Research Plan (UX)",
+    "question": "Draft a short research plan to test a new onboarding flow (goals, method, participants, success metrics).",
+    "timeLimitSec": 900,
+    "targetWords": 160,
+    "minWords": 120
+  }
+]

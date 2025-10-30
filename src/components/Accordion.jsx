@@ -117,9 +117,9 @@ export default function Accordion({ items, onSelect }) {
                           transition={{ type: 'spring', stiffness: 400, damping: 20, duration: 0.12 }}
                         >
                           <div className="flex items-center gap-2">
-                            <span className="block font-extrabold text-[color:var(--text)] truncate">
-                              {ex.title || ex.question || 'Exercise'}
-                            </span>
+                <span className="block font-extrabold text-[color:var(--text)] truncate preline">
+                  {ex.title || ex.question || 'Exercise'}
+                </span>
 
                             {/* Badge por nivel (pastel) */}
                             {(() => {
@@ -139,7 +139,7 @@ export default function Accordion({ items, onSelect }) {
                           </div>
 
                           {(ex.question || ex.subtitle) && (
-                            <span className="block text-[color:var(--muted)] text-sm mt-0.5 line-clamp-2">
+                            <span className="block text-[color:var(--muted)] text-sm mt-0.5 line-clamp-2 preline">
                               {ex.subtitle || ex.question}
                             </span>
                           )}

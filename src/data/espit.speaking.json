@@ -1,0 +1,94 @@
+[
+  {
+    "id": "espit-1",
+    "type": "espit",
+    "skill": "speaking",
+    "task": 1,
+    "level": "Intermediate-Advanced",
+    "title": "Explaining a Production Incident (Non-Technical)",
+    "question": "A client reports the app feels slow during peak hours. Explain the likely causes in plain language and outline your plan to diagnose and fix the issue.",
+    "verbs": ["explain", "investigate", "monitor", "optimize", "scale", "cache", "profile", "deploy", "communicate"],
+    "examples": [
+      "B2: Thanks for telling us. When many people use the app at the same time, it can create a line, like a busy checkout. I’ll check our monitoring to see which part is slow—database, network, or code.\n\nFirst, I’ll confirm the busiest times. Then I’ll test the slow actions and add a quick fix, like caching popular data or adding capacity. Finally, I’ll share a timeline and next update.",
+      "C1: The slowdown likely comes from a database bottleneck, inefficient endpoints, or limited capacity during spikes. I’ll review logs and metrics, profile the slow paths, and run a short load test to reproduce the issue.\n\nWe can ship quick wins (caching hot queries) and plan mid‑term improvements (indexes, autoscaling). I’ll keep you informed and propose a test window to validate the fix.",
+      "C2: I frame it as a latency‑under‑load problem. Using traces and DB metrics, I’ll isolate the main driver (e.g., lock contention, N+1 queries).\n\nShort term: selective caching, tuned autoscaling, and circuit breakers. Long term: query refactors, async processing, and backpressure. I’ll translate each step into clear client impact and timelines."
+    ],
+    "timeLimitSec": 120
+  },
+  {
+    "id": "espit-2",
+    "type": "espit",
+    "skill": "speaking",
+    "task": 2,
+    "title": "Prioritizing a Bug vs. a Feature",
+    "question": "Your product owner asks whether to prioritize a critical bug affecting 5% of users or a new feature requested by a key client. Explain your decision and trade‑offs.",
+    "verbs": ["prioritize", "justify", "estimate", "mitigate", "coordinate"],
+    "examples": [
+      "B2: I would fix the critical bug first because it hurts real users now. I’d share the impact in numbers, propose a short plan to fix it, and give a clear date for the feature next.\n\nThis keeps trust and reduces risk.",
+      "C1: I’d compare impact, urgency, and effort. The bug affects stability and support costs, while the feature improves revenue. We can ship a hotfix or workaround within a day, then resume the feature with updated milestones.\n\nI’d align with stakeholders and publish the plan.",
+      "C2: I’d use a simple prioritization model (value, risk, cost). A customer‑visible defect increases churn and operational load, so it gets priority. I’d mitigate stakeholder risk by providing a narrow hotfix window and a staged feature plan, with explicit assumptions and checkpoints."
+    ],
+    "timeLimitSec": 120
+  },
+  {
+    "id": "espit-3",
+    "type": "espit",
+    "skill": "speaking",
+    "task": 3,
+    "title": "Describing a Debugging Process",
+    "question": "Describe a time you debugged a complex issue. How did you isolate the root cause and validate the fix?",
+    "verbs": ["observe", "reproduce", "isolate", "verify", "document"],
+    "examples": [
+      "B2: First, I reproduced the problem step by step. Then, I checked logs and compared results between good and bad cases. After finding the cause, I fixed it and tested again.\n\nFinally, I wrote a short note so the team can avoid it next time.",
+      "C1: I narrowed the scope using binary search in the code path, added targeted logs, and wrote a small script to reproduce the error. I validated the fix with unit and integration tests and monitored metrics after deployment.\n\nI documented the lesson and added a safeguard.",
+      "C2: I treated it as a system behavior gap. I created a hypothesis list, ranked by likelihood, and used instrumentation and local load tests to eliminate candidates. I validated with canary deploys and SLO checks, then automated a regression test to prevent recurrence."
+    ],
+    "timeLimitSec": 120
+  }
+  ,
+  {
+    "id": "espit-4",
+    "type": "espit",
+    "skill": "speaking",
+    "task": 4,
+    "title": "Product Manager – Prioritizing a Roadmap",
+    "question": "You have limited capacity next quarter. Explain how you would prioritize features A, B, and C, balancing impact, risk, and effort.",
+    "verbs": ["prioritize", "estimate", "validate", "de-risk", "align"],
+    "examples": [
+      "B2: I would compare impact and effort for each feature. First, I’d confirm which feature helps the most users. Then, I’d check how hard it is to build.\n\nI’d choose the one with high impact and medium effort first, and plan the others after we learn from the results.",
+      "C1: I’d use a simple framework like RICE to quantify reach, impact, confidence, and effort. I’d also consider risk: dependencies, technical uncertainty, and time to value.\n\nI’d propose sequencing A → B → C based on the score and set success metrics so we can adjust quickly.",
+      "C2: I’d frame prioritization as maximizing expected value under constraints. I’d triangulate inputs from customer data, sales, and engineering discovery; then run a short experiment or pilot to reduce uncertainty.\n\nWe’d lock a thin vertical slice for A, track leading indicators, and re‑rank the backlog in a bi‑weekly review."
+    ],
+    "timeLimitSec": 120
+  },
+  {
+    "id": "espit-5",
+    "type": "espit",
+    "skill": "speaking",
+    "task": 5,
+    "title": "Software Developer – Explaining a Refactor",
+    "question": "A stakeholder asks why you want to refactor a stable module. Explain the benefits, risks, and how you will de‑risk the change.",
+    "verbs": ["refactor", "reduce", "isolate", "test", "migrate"],
+    "examples": [
+      "B2: I want to make the code easier to understand and maintain. Right now, changes take longer and can break other parts.\n\nI’ll update it step by step, add tests, and release in small pieces to reduce risk.",
+      "C1: The module has hidden coupling and duplicate logic, which increases lead time and defect risk. I’ll isolate responsibilities, add unit and integration tests, and migrate gradually behind feature flags.\n\nThis lowers future costs and makes onboarding faster.",
+      "C2: The refactor reduces complexity and systemic risk by improving cohesion and boundaries. I’ll use strangler‑fig migration, contract tests, and canary deploys.\n\nWe balance short‑term effort with long‑term velocity, quantified via cycle time and change failure rate."
+    ],
+    "timeLimitSec": 120
+  },
+  {
+    "id": "espit-6",
+    "type": "espit",
+    "skill": "speaking",
+    "task": 6,
+    "title": "UX Designer – Defending a Usability Change",
+    "question": "You propose a simpler checkout flow with fewer steps. Justify the change using research and explain how you will measure success.",
+    "verbs": ["justify", "simplify", "validate", "measure", "iterate"],
+    "examples": [
+      "B2: Users told us the checkout feels long. I want to remove extra steps to make it faster.\n\nWe’ll test the new flow with a small group and see if more people finish the purchase.",
+      "C1: Usability tests and funnel data show drop‑offs at two points. By reducing fields and combining steps, we expect higher completion and fewer errors.\n\nWe’ll measure task time, success rate, and conversion to confirm the impact.",
+      "C2: Triangulated evidence (heuristic reviews, session replays, and AB tests) indicates cognitive overload. The design reduces interaction cost and clarifies feedback.\n\nWe’ll run an AB test with guardrail metrics (conversion, latency, CSAT) and iterate based on segmented results."
+    ],
+    "timeLimitSec": 120
+  }
+]

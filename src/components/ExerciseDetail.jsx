@@ -26,8 +26,8 @@ function SamplesTabs({ examples = [] }) {
           </button>
         ))}
       </div>
-      <div className="mt-3 text-[color:var(--text)] text-sm leading-relaxed">
-        {current || '—'}
+      <div className="mt-3 text-[color:var(--text)] text-sm leading-relaxed preline">
+        {current || '-'}
       </div>
     </div>
   )
@@ -74,9 +74,9 @@ export default function ExerciseDetail({ exercise, onBack }) {
           ) : null}
         </div>
         <h2 className="mb-1">{title || question}</h2>
-        <p className="text-[color:var(--muted)] text-sm m-0">{question}</p>
+        <p className="text-[color:var(--muted)] text-sm m-0 preline">{question}</p>
         <div className="mt-3">
-          <button className="btn-ghost-tw" onClick={onBack}>Back to list</button>
+          <button className="btn-ghost-tw" onClick={onBack}>← Volver al menú</button>
         </div>
       </div>
 
@@ -118,7 +118,7 @@ export default function ExerciseDetail({ exercise, onBack }) {
         <details className="rounded-xl border border-[color:var(--panel-border)] bg-white p-3">
           <summary className="cursor-pointer text-[color:var(--text)]">Tips del examinador</summary>
           <div className="mt-2 text-[color:var(--muted)] text-sm">
-            <p className="m-0">{examinerTip || 'Avoid repeating "because" too often. Try "since", "as", or "due to". Vary sentence length and connect ideas clearly.'}</p>
+            <p className="m-0 preline">{examinerTip || 'Avoid repeating "because" too often. Try "since", "as", or "due to". Vary sentence length and connect ideas clearly.'}</p>
           </div>
         </details>
 

@@ -1,0 +1,93 @@
+[
+  {
+    "id": "espit-r1",
+    "type": "espit",
+    "skill": "reading",
+    "task": 1,
+    "title": "Postmortem Excerpt: Outage Summary",
+    "imageUrl": "",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Which factor MOST likely triggered the incident?",
+        "options": [
+          "Unexpected traffic spike",
+          "New feature rollout",
+          "Database hardware failure",
+          "Third‑party API change"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Fill in: The team mitigated impact by enabling ______ for hot endpoints.",
+        "answer": "caching"
+      },
+      {
+        "id": "q3",
+        "prompt": "Which measure belongs to LONG‑TERM actions?",
+        "options": [
+          "Temporary autoscaling",
+          "Clearing application cache",
+          "Adding DB indexes",
+          "Rolling back the release"
+        ],
+        "answer": 2
+      }
+    ]
+  }
+  ,
+  {
+    "id": "espit-r2",
+    "type": "espit",
+    "skill": "reading",
+    "task": 2,
+    "title": "Metrics Memo: Product KPIs",
+    "imageUrl": "",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Which KPI signals a possible UX issue in onboarding?",
+        "options": ["DAU", "Activation Rate", "Revenue", "Server Uptime"],
+        "answer": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Short answer: Which metric would you AB test after simplifying the signup form?",
+        "answer": "conversion"
+      },
+      {
+        "id": "q3",
+        "prompt": "Pick the BEST follow‑up to investigate a drop in activation.",
+        "options": [
+          "Ship a new feature immediately",
+          "Conduct usability tests and review funnel steps",
+          "Increase ad spend",
+          "Disable analytics"
+        ],
+        "answer": 1
+      }
+    ]
+  },
+  {
+    "id": "espit-r3",
+    "type": "espit",
+    "skill": "reading",
+    "task": 3,
+    "title": "Research Summary: Checkout Usability Findings",
+    "imageUrl": "",
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "What was the main barrier users reported?",
+        "options": ["Slow server", "Too many fields", "Missing images", "Color contrast"],
+        "answer": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Short answer: Name one metric to validate the redesign.",
+        "answer": "completion rate"
+      }
+    ]
+  }
+]

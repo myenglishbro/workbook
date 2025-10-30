@@ -1,67 +1,629 @@
 ﻿[
-    {
-        "id":  "cambridge-1",
-        "type":  "cambridge",
-        "skill":  "speaking",
-        "task":  1,
-        "title":  "ACE LINGUA NUEVO ",
-        "question":  "CREAR UNA RESUMEN",
-        "imageUrl":  "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200",
-        "verbs":  [
-                      "LIKE",
-                      "HATE",
-                      "LOVE",
-                      "highlight",
-                      "suggest"
-                  ],
-        "examples":  [
-                         "THIS I S MYU CAS",
-                         "La oficina favorece la colaboraciÃ³n y una rutina mÃ¡s clara.",
-                         "Personalmente prefiero alternar segÃºn las tareas de la semana."
-                     ],
-        "timeLimitSec":  60
-    },
-    {
-        "id":  "cambridge-2",
-        "type":  "cambridge",
-        "skill":  "speaking",
-        "task":  2,
-        "title":  "Evento cultural local",
-        "question":  "Describe un evento cultural en tu ciudad y su impacto.",
-        "verbs":  [
-                      "describe",
-                      "attract",
-                      "promote",
-                      "celebrate",
-                      "influence"
-                  ],
-        "examples":  [
-                         "Cada aÃ±o celebramos un festival gastronÃ³mico con mÃºsica local.",
-                         "Atrae visitantes, promueve negocios y une a la comunidad.",
-                         "Influye positivamente en la identidad y el turismo."
-                     ],
-        "timeLimitSec":  60
-    },
-    {
-        "id":  "cambridge-3",
-        "type":  "cambridge",
-        "skill":  "speaking",
-        "task":  2,
-        "title":  "Sustainable tourism",
-        "question":  "Propose ideas to foster more sustainable tourism in your region.",
-        "imageUrl":  "https://i.ibb.co/DfcRsb39/Gemini-Generated-Image-ms9uzhms9uzhms9u.png",
-        "verbs":  [
-                      "propose",
-                      "reduce",
-                      "educate",
-                      "protect",
-                      "encourage"
-                  ],
-        "examples":  [
-                         "Promote public transport and bike routes for visitors.",
-                         "Educate visitors about waste and protecting nature.",
-                         "Encourage stays with responsible practices."
-                     ],
-        "timeLimitSec":  60
-    }
+  {
+    "id": "cambridge-where-1",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Where you live",
+    "question": "Where do you live?",
+    "verbs": ["live", "stay", "move", "grow", "enjoy", "visit"],
+    "examples": [
+      "I live in a small town near the coast. It’s a peaceful place with friendly people and beautiful beaches.",
+      "I live in Lima, the capital city of Peru. I really enjoy its mix of modern life and old traditions.",
+      "Currently, I live with my family in an apartment in the city center, which is very convenient for work and shopping."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-where-2",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Where you live",
+    "question": "How long have you been living there?",
+    "verbs": ["live", "stay", "move", "settle", "spend", "enjoy"],
+    "examples": [
+      "I’ve been living here for about five years since I moved for my studies.",
+      "I’ve lived in my current apartment since 2020, and I really like the neighborhood.",
+      "I moved here two years ago, and it didn’t take long to feel at home."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-where-3",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Where you live",
+    "question": "What kind of building do you live in?",
+    "verbs": ["live", "rent", "share", "own", "decorate", "enjoy"],
+    "examples": [
+      "I live in a small apartment on the third floor of a modern building.",
+      "I live in a two-story house with my parents. It has a big garden and a small balcony.",
+      "I rent a studio flat near the city center, which is small but very comfortable."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-where-4",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Where you live",
+    "question": "Who lives with you?",
+    "verbs": ["live", "share", "spend", "help", "support", "enjoy"],
+    "examples": [
+      "I live with my parents and my younger sister. We get along very well.",
+      "I share an apartment with a friend from university. We cook and study together.",
+      "I live alone, but my family visits me often, which makes me feel connected."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-where-5",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Where you live",
+    "question": "What do you like or dislike about the town, village, or district where you live?",
+    "verbs": ["like", "enjoy", "hate", "prefer", "visit", "improve"],
+    "examples": [
+      "I like that my town is quiet and surrounded by nature, but I dislike the lack of good public transport.",
+      "I really enjoy living in my district because it’s close to restaurants and shops, though it can be noisy sometimes.",
+      "I love the atmosphere and friendly people, but I wish there were more parks and green spaces."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-travel-6",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Travel",
+    "question": "Do you like traveling?",
+    "verbs": ["travel", "enjoy", "explore", "visit", "learn", "relax"],
+    "examples": [
+      "Yes, I love traveling because it allows me to explore new cultures and try different food.",
+      "I enjoy traveling during my holidays. It helps me relax and learn about new places.",
+      "Traveling is one of my favorite hobbies because it opens my mind and gives me great memories."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-travel-7",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Travel",
+    "question": "How often do you travel?",
+    "verbs": ["travel", "plan", "visit", "save", "enjoy", "return"],
+    "examples": [
+      "I usually travel twice a year, mostly during my vacation time.",
+      "I try to travel at least once every few months, even if it’s just a short weekend trip.",
+      "Not very often, maybe once a year, but I always make it special."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-travel-8",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Travel",
+    "question": "What is your favorite place you have visited?",
+    "verbs": ["visit", "enjoy", "remember", "explore", "recommend", "travel"],
+    "examples": [
+      "My favorite place is Cusco because of its history and the amazing views of Machu Picchu.",
+      "I loved visiting Paris last year. The architecture and food were unforgettable.",
+      "The best place I’ve visited is Arequipa. It’s clean, sunny, and full of culture."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-travel-9",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Travel",
+    "question": "Do you prefer to travel alone or with others?",
+    "verbs": ["prefer", "travel", "share", "enjoy", "decide", "organize"],
+    "examples": [
+      "I prefer traveling with friends because it’s more fun and we can share experiences.",
+      "I like to travel alone sometimes, as it gives me more freedom to decide what to do.",
+      "Traveling with my family is my favorite because we enjoy each other’s company."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-travel-10",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Travel",
+    "question": "What place would you like to visit in the future?",
+    "verbs": ["visit", "dream", "plan", "explore", "experience", "travel"],
+    "examples": [
+      "I’d love to visit Japan because I’m fascinated by its culture and technology.",
+      "In the future, I’d like to travel to Canada to see the natural landscapes and cities.",
+      "My dream is to visit Italy and try authentic Italian food while exploring the old towns."
+    ],
+    "timeLimitSec": 60
+  },
+
+  {
+    "id": "cambridge-family-11",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Family and friends",
+    "question": "Describe briefly the members of your family.",
+    "verbs": ["live", "work", "study", "help", "support", "enjoy"],
+    "examples": [
+      "My family has four members: my parents, my sister, and me. We are very close and spend a lot of time together.",
+      "I live with my parents and my younger brother. My father works as a teacher and my mother is a nurse.",
+      "In my family, everyone has a different personality, but we all support each other in everything we do."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-family-12",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Family and friends",
+    "question": "Describe briefly one or two of your best friends.",
+    "verbs": ["study", "meet", "talk", "share", "enjoy", "help"],
+    "examples": [
+      "My best friend is Ana. We met at university and we share the same sense of humor.",
+      "One of my best friends is Carlos. He’s very supportive and always gives me good advice.",
+      "I have two close friends. We love spending weekends together watching movies or playing sports."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-family-13",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Family and friends",
+    "question": "What kind of things do you talk about with your friends?",
+    "verbs": ["talk", "discuss", "share", "laugh", "plan", "remember"],
+    "examples": [
+      "We usually talk about our studies, work, and funny things that happen during the week.",
+      "My friends and I often discuss movies, relationships, and our future plans.",
+      "We talk about everything — from daily life to personal goals. There’s always something to share."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-family-14",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Family and friends",
+    "question": "What influence have your family and friends had on you?",
+    "verbs": ["inspire", "teach", "support", "motivate", "influence", "guide"],
+    "examples": [
+      "My family has influenced me a lot. They taught me to work hard and be kind to others.",
+      "My friends have motivated me to be more confident and try new experiences.",
+      "Both my family and friends have helped shape my personality and my values."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-family-15",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Family and friends",
+    "question": "What interests do your family and friends have?",
+    "verbs": ["enjoy", "play", "watch", "travel", "listen", "cook"],
+    "examples": [
+      "My family enjoys watching movies together and going out for dinner on weekends.",
+      "My friends are into music and sports, especially football and dancing.",
+      "We all love traveling and discovering new places when we have free time."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-money-16",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Money and possessions",
+    "question": "What would you buy if you suddenly had a lot of money? Why?",
+    "verbs": ["buy", "invest", "save", "travel", "help", "donate"],
+    "examples": [
+      "If I had a lot of money, I would buy a house for my parents and travel around the world.",
+      "I’d probably invest in a business or save for my future.",
+      "First, I’d buy a car, and then I’d donate some money to charity because helping others is important."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-money-17",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Money and possessions",
+    "question": "Do you want to be richer than you are now? Why or why not?",
+    "verbs": ["earn", "save", "spend", "want", "enjoy", "work"],
+    "examples": [
+      "Yes, I’d like to be a bit richer so I can travel more and live comfortably.",
+      "I don’t need to be very rich, just enough to cover my needs and enjoy life.",
+      "Money is useful, but happiness doesn’t always depend on it. I prefer balance."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-money-18",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Money and possessions",
+    "question": "What do people of your age generally want to buy? Why?",
+    "verbs": ["buy", "save", "prefer", "spend", "want", "enjoy"],
+    "examples": [
+      "People my age usually want to buy gadgets like phones or laptops because they’re essential for work or study.",
+      "Many young people save money to buy a car or rent an apartment.",
+      "Nowadays, people of my age often spend on experiences, such as trips or concerts, rather than things."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-money-19",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Money and possessions",
+    "question": "What are your favourite possessions? Why?",
+    "verbs": ["have", "use", "love", "keep", "value", "enjoy"],
+    "examples": [
+      "My favorite possession is my laptop because I use it for studying and creative projects.",
+      "I really value my guitar because it helps me relax and express myself.",
+      "I love my phone because it keeps me connected to my family and friends."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-money-20",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Money and possessions",
+    "question": "What would you like to own in the future? Why?",
+    "verbs": ["own", "buy", "dream", "plan", "work", "achieve"],
+    "examples": [
+      "I’d like to own my own house in the future because it represents stability and independence.",
+      "I hope to buy a small business one day and become my own boss.",
+      "In the future, I’d love to own a car so I can travel easily and explore new places."
+    ],
+    "timeLimitSec": 60
+  }
+,
+  {
+    "id": "cambridge-sport-21",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Sport",
+    "question": "What’s your favourite sport? Why?",
+    "verbs": ["play", "enjoy", "watch", "train", "practice", "compete"],
+    "examples": [
+      "My favourite sport is football because it’s exciting and brings people together.",
+      "I love swimming because it helps me stay fit and relaxed at the same time.",
+      "Basketball is my favourite sport. I like how fast and dynamic the game is."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-sport-22",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Sport",
+    "question": "Which sport or sports do you dislike? Why?",
+    "verbs": ["dislike", "avoid", "prefer", "try", "watch", "play"],
+    "examples": [
+      "I don’t really like boxing because it seems too violent for me.",
+      "I dislike golf because it’s too slow and doesn’t keep my attention.",
+      "I’m not a big fan of running long distances. I prefer team sports instead."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-sport-23",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Sport",
+    "question": "Which sports are popular in your country?",
+    "verbs": ["play", "watch", "support", "enjoy", "follow", "practice"],
+    "examples": [
+      "In my country, football is the most popular sport. Everyone watches the big matches.",
+      "Volleyball and athletics are also quite popular, especially among young people.",
+      "People in my country love watching football and playing it in local parks."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-sport-24",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Sport",
+    "question": "Do you support a particular team? Is it a successful team?",
+    "verbs": ["support", "follow", "watch", "cheer", "play", "win"],
+    "examples": [
+      "Yes, I support Alianza Lima. They’re one of the most successful teams in Peru.",
+      "I follow a local football team from my city. They’re not the best, but I enjoy supporting them.",
+      "I like Real Madrid because they’ve won many championships and have great players."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-sport-25",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Sport",
+    "question": "What is your experience of taking part in sports?",
+    "verbs": ["play", "train", "join", "learn", "enjoy", "improve"],
+    "examples": [
+      "I used to play volleyball in high school, and it helped me develop teamwork skills.",
+      "I’ve participated in several local races, and it was a great way to challenge myself.",
+      "When I was younger, I joined a swimming club and learned a lot about discipline and health."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-news-26",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "The news",
+    "question": "Do you take an interest in what’s happening in the news? Why or why not?",
+    "verbs": ["read", "watch", "follow", "learn", "discuss", "understand"],
+    "examples": [
+      "Yes, I try to follow the news every day because it keeps me informed about what’s happening around the world.",
+      "Sometimes I read the news online, but I try not to spend too much time on negative stories.",
+      "I’m not very interested in the news because it can be stressful, but I like reading positive updates."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-news-27",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "The news",
+    "question": "What newspaper or newspapers do you read? Describe them.",
+    "verbs": ["read", "choose", "prefer", "find", "trust", "follow"],
+    "examples": [
+      "I usually read online newspapers like BBC News because they’re easy to access and reliable.",
+      "Sometimes I read local newspapers to know what’s happening in my city.",
+      "I prefer reading international news websites since they cover global topics in more depth."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-news-28",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "The news",
+    "question": "What is the news on TV like in your country?",
+    "verbs": ["watch", "report", "show", "inform", "cover", "analyze"],
+    "examples": [
+      "The news on TV in my country is quite serious and mainly focuses on politics and social issues.",
+      "Some TV channels mix news with entertainment, which makes it more interesting to watch.",
+      "TV news is informative but sometimes too repetitive. I prefer getting updates online."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-news-29",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "The news",
+    "question": "Apart from newspapers and TV, what other sources of news can you use?",
+    "verbs": ["use", "check", "read", "follow", "listen", "share"],
+    "examples": [
+      "I usually check news websites and social media apps like Twitter and Instagram.",
+      "Podcasts and YouTube channels are great sources of news, especially for younger people.",
+      "I get most of my news from my phone using news apps and online platforms."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-news-30",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "The news",
+    "question": "What’s your opinion of the way the media present the news?",
+    "verbs": ["think", "believe", "feel", "report", "influence", "trust"],
+    "examples": [
+      "I think the media sometimes exaggerates stories to get more attention.",
+      "Some channels are objective, but others are biased depending on their political views.",
+      "In my opinion, the media should focus more on positive and educational news."
+    ],
+    "timeLimitSec": 60
+  }
+,
+  {
+    "id": "cambridge-music-31",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Music",
+    "question": "What’s your favourite kind of music? Why?",
+    "verbs": ["listen", "enjoy", "sing", "dance", "relax", "feel"],
+    "examples": [
+      "My favourite kind of music is pop because it’s energetic and easy to sing along to.",
+      "I really enjoy listening to rock music. It helps me relax and gives me motivation.",
+      "I love Latin music, especially salsa, because it makes me want to dance and have fun."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-music-32",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Music",
+    "question": "What kind of music don’t you like? Why?",
+    "verbs": ["dislike", "prefer", "listen", "avoid", "find", "enjoy"],
+    "examples": [
+      "I don’t like heavy metal because it’s too loud for me.",
+      "I usually avoid classical music. I respect it, but it’s not my style.",
+      "I’m not a fan of reggaeton. I prefer something calmer and with meaningful lyrics."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-music-33",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Music",
+    "question": "What kinds of music are popular with young people in your country?",
+    "verbs": ["listen", "enjoy", "prefer", "dance", "share", "download"],
+    "examples": [
+      "Young people in my country love reggaeton and pop music because they can dance to it.",
+      "Nowadays, many teenagers listen to K-pop and urban music. It’s very trendy.",
+      "Most young people enjoy streaming international artists through apps like Spotify."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-music-34",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Music",
+    "question": "Have you ever tried to play a musical instrument? Did you do well?",
+    "verbs": ["try", "play", "learn", "practice", "improve", "enjoy"],
+    "examples": [
+      "Yes, I tried to play the guitar when I was younger. It was difficult, but fun.",
+      "I learned to play the piano for two years. I wasn’t perfect, but I enjoyed it a lot.",
+      "I once tried the drums, and although I wasn’t great, it was an exciting experience."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-music-35",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Music",
+    "question": "Which instrument or instruments would you like to be able to play? Why?",
+    "verbs": ["play", "learn", "choose", "enjoy", "practice", "perform"],
+    "examples": [
+      "I’d like to learn how to play the piano because it sounds elegant and relaxing.",
+      "I’ve always wanted to play the guitar to accompany songs I like.",
+      "I’d love to learn the violin because it’s beautiful and emotional."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-tech-36",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Technology / Gadgets",
+    "question": "What pieces of technology or electronic gadgets do you own?",
+    "verbs": ["use", "own", "charge", "buy", "enjoy", "need"],
+    "examples": [
+      "I own a smartphone, a laptop, and a tablet. I use them for work and entertainment.",
+      "I have a laptop that I use for studying and teaching online.",
+      "I own several gadgets like a smartwatch and wireless earphones for convenience."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-tech-37",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Technology / Gadgets",
+    "question": "How did you learn how to use pieces of technology or electronic gadgets?",
+    "verbs": ["learn", "watch", "try", "ask", "practice", "explore"],
+    "examples": [
+      "I learned by watching YouTube tutorials and trying things by myself.",
+      "Most of what I know came from experimenting and asking friends for help.",
+      "I learned at school and through online videos about technology."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-tech-38",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Technology / Gadgets",
+    "question": "What do you think are the advantages and disadvantages of new technology for communicating with other people? Why?",
+    "verbs": ["communicate", "connect", "share", "help", "improve", "affect"],
+    "examples": [
+      "Technology helps us stay in touch with people anywhere, but sometimes it reduces face-to-face interaction.",
+      "It’s easy to communicate instantly, but some people depend too much on their phones.",
+      "New technology has made communication faster, though it can feel less personal at times."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-tech-39",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Technology / Gadgets",
+    "question": "Which pieces of technology or electronic gadgets would you like to own? Why?",
+    "verbs": ["buy", "own", "use", "upgrade", "enjoy", "afford"],
+    "examples": [
+      "I’d like to own a new laptop with better performance for my work and studies.",
+      "I’d love to have a professional camera to take high-quality photos.",
+      "A smartwatch would be great because it helps monitor my health and fitness."
+    ],
+    "timeLimitSec": 60
+  },
+  {
+    "id": "cambridge-tech-40",
+    "type": "cambridge",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Technology / Gadgets",
+    "question": "What do you think is the most useful piece of technology today? Why?",
+    "verbs": ["use", "help", "change", "connect", "make", "improve"],
+    "examples": [
+      "I think smartphones are the most useful because they combine many tools in one device.",
+      "Computers are still the most essential technology for work and education.",
+      "In my opinion, the internet itself is the most powerful invention for communication and learning."
+    ],
+    "timeLimitSec": 60
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 ]

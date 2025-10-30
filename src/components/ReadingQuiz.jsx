@@ -155,7 +155,7 @@ export default function ReadingQuiz({
                 >
                   <div className="p-4">
                     <div className="mb-3 flex items-start justify-between gap-3">
-                      <div className="text-[color:var(--text)] font-semibold leading-snug">
+                      <div className="text-[color:var(--text)] font-semibold leading-snug preline">
                         {q.prompt || `Question ${idx + 1}`}
                       </div>
                       <span className="shrink-0 inline-flex items-center rounded-full border border-[color:var(--panel-border)] bg-white px-2 py-0.5 text-xs text-[color:var(--muted)]">
@@ -232,4 +232,3 @@ export default function ReadingQuiz({
     </div>
   )
 }
-

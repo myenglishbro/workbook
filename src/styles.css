@@ -99,3 +99,6 @@ body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-s
 }
 .kw-ok{ background:#EAF7EE; color:#1B8754; border-color:#CBE9D5 }
 .kw-bad{ background:#FFE8EA; color:#9B1C31; border-color:#F7C2CA }
+
+/* Preserve line breaks in JSON-rendered text */
+.preline{ white-space: pre-line }

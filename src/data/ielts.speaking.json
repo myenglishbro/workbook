@@ -1,88 +1,64 @@
-﻿[
-    {
-        "id":  "ielts-1",
-        "type":  "ielts",
-        "skill":  "speaking",
-        "task":  1,
-        "title":  "Libro que te influyÃ³",
-        "question":  "Describe un libro que haya cambiado tu manera de pensar.",
-        "imageUrl":  "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200",
-        "verbs":  [
-                      "influence",
-                      "change",
-                      "realize",
-                      "reflect",
-                      "recommend"
-                  ],
-        "examples":  [
-                         "LeÃ­ un libro sobre hÃ¡bitos que me ayudÃ³ a ser constante.",
-                         "Me hizo reflexionar sobre metas pequeÃ±as y medibles.",
-                         "Lo recomiendo porque ofrece ideas prÃ¡cticas y claras."
-                     ],
-        "timeLimitSec":  120
-    },
-    {
-        "id":  "ielts-2",
-        "type":  "ielts",
-        "skill":  "speaking",
-        "task":  1,
-        "title":  "Lugar tranquilo para estudiar",
-        "question":  "Habla de un lugar tranquilo donde te gusta estudiar o trabajar.",
-        "verbs":  [
-                      "prefer",
-                      "focus",
-                      "reduce",
-                      "improve",
-                      "choose"
-                  ],
-        "examples":  [
-                         "Prefiero una biblioteca pequeÃ±a: silenciosa y bien iluminada.",
-                         "Me ayuda a concentrarme y reducir distracciones.",
-                         "La elijo cuando necesito escribir o preparar presentaciones."
-                     ],
-        "timeLimitSec":  120
-    },
-    {
-        "id":  "ielts-3",
-        "type":  "ielts",
-        "skill":  "speaking",
-        "task":  2,
-        "title":  "TecnologÃ­a Ãºtil diaria",
-        "question":  "Describe una tecnologÃ­a que uses a diario y por quÃ© es Ãºtil.",
-        "verbs":  [
-                      "use",
-                      "help",
-                      "organize",
-                      "improve",
-                      "communicate"
-                  ],
-        "examples":  [
-                         "Uso una app de notas para organizar mis tareas.",
-                         "Me ayuda a priorizar y no olvidar plazos.",
-                         "La recomiendo porque sincroniza entre dispositivos."
-                     ],
-        "timeLimitSec":  120
-    },
-    {
-        "id":  "ielts-4",
-        "type":  "ielts",
-        "skill":  "speaking",
-        "task":  2,
-        "title":  "Healthy habits",
-        "question":  "Suggest daily habits to improve health and productivity.",
-        "imageUrl":  "https://images.unsplash.com/photo-1514511547113-bfb3d9f75f1c?w=1200",
-        "verbs":  [
-                      "suggest",
-                      "improve",
-                      "build",
-                      "avoid",
-                      "maintain"
-                  ],
-        "examples":  [
-                         "Dormir bien y mantener horarios consistentes.",
-                         "Planificar comidas y tomar descansos breves.",
-                         "Evitar distracciones y moverse cada hora."
-                     ],
-        "timeLimitSec":  120
-    }
+[
+  {
+    "id": "ielts-1",
+    "type": "ielts",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Libro que te influyó",
+    "question": "Describe un libro que haya cambiado tu manera de pensar.",
+    "imageUrl": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200",
+    "verbs": ["influence", "change", "realize", "reflect", "recommend"],
+    "examples": [
+      "B2: I read a book about habits that completely changed how I approach goals. It explained the idea of building small, consistent routines instead of chasing big, unrealistic plans.\n\nSince then, I set tiny daily targets and track them, which keeps me motivated and makes progress feel achievable.",
+      "C1: A non-fiction book on behavior design helped me understand why willpower alone is unreliable. The author showed how to connect a new habit to an existing one, reduce friction, and reward progress.\n\nApplying those ideas made my routines more sustainable and improved my focus over time.",
+      "C2: The book reframed success as a system rather than a single event. By shifting attention from outcomes to processes—environment cues, identity, and feedback loops—it reshaped how I plan projects.\n\nAs a result, I now design strategies that are resilient, measurable, and aligned with long-term values."
+    ],
+    "timeLimitSec": 120
+  },
+  {
+    "id": "ielts-2",
+    "type": "ielts",
+    "skill": "speaking",
+    "task": 1,
+    "title": "Lugar tranquilo para estudiar",
+    "question": "Habla de un lugar tranquilo donde te gusta estudiar o trabajar.",
+    "verbs": ["prefer", "focus", "reduce", "improve", "choose"],
+    "examples": [
+      "B2: I usually go to a small library near my house. It's quiet, well-lit, and has comfortable desks.\n\nBeing there helps me avoid distractions and stay focused for longer periods.",
+      "C1: I choose that place because the atmosphere encourages deep work: soft lighting, minimal noise, and reliable Wi‑Fi. I also follow a routine—arrive with a to-do list, take short breaks, and leave when I complete my main task.\n\nThat structure helps me maintain concentration and finish work efficiently.",
+      "C2: The environment supports cognitive performance by limiting context switching. I batch similar tasks, block notifications, and position my desk away from foot traffic.\n\nThis intentional setup reduces mental fatigue and improves the quality of my output."
+    ],
+    "timeLimitSec": 120
+  },
+  {
+    "id": "ielts-3",
+    "type": "ielts",
+    "skill": "speaking",
+    "task": 2,
+    "title": "Tecnología útil diaria",
+    "question": "Describe una tecnología que uses a diario y por qué es útil.",
+    "verbs": ["use", "help", "organize", "improve", "communicate"],
+    "examples": [
+      "B2: I use a notes app every day to write reminders and organize tasks. It keeps everything in one place and syncs across my devices, so I don't forget deadlines.",
+      "C1: I organize projects with folders, tags, and checklists. I also add due dates and short summaries, which helps me review priorities quickly and reduce stress.\n\nAs a result, I save time and work more consistently.",
+      "C2: The app improves my workflow by externalizing memory and reducing cognitive load. With templates and automation, I can plan, track progress, and reflect on outcomes—turning daily tasks into a reliable system."
+    ],
+    "timeLimitSec": 120
+  },
+  {
+    "id": "ielts-4",
+    "type": "ielts",
+    "skill": "speaking",
+    "task": 2,
+    "title": "Healthy habits",
+    "question": "Suggest daily habits to improve health and productivity.",
+    "imageUrl": "https://images.unsplash.com/photo-1514511547113-bfb3d9f75f1c?w=1200",
+    "verbs": ["suggest", "improve", "build", "avoid", "maintain"],
+    "examples": [
+      "B2: Get enough sleep, drink water regularly, and take short breaks during the day. These simple habits help you feel better and stay focused.",
+      "C1: Keep consistent sleep and meal times, plan your day with two or three key tasks, and walk for at least 20 minutes.\n\nThese routines improve energy, reduce stress, and support long-term consistency.",
+      "C2: Design habits as systems: pair a new action with an existing cue, reduce friction, and track progress briefly each evening.\n\nThis approach builds sustainable routines that support both health and high-quality work."
+    ],
+    "timeLimitSec": 120
+  }
 ]

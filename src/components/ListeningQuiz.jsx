@@ -65,7 +65,7 @@ export default function ListeningQuiz({ videoUrl, youtubeId, questions = [], tit
           const ok = checked ? isCorrect(q, user) : null
           return (
             <li key={q.id || idx} className="p-3 rounded-xl border border-[color:var(--panel-border)] bg-white">
-              <div className="text-[color:var(--text)] font-semibold mb-2">{q.prompt || `Pregunta ${idx + 1}`}</div>
+              <div className="text-[color:var(--text)] font-semibold mb-2 preline">{q.prompt || `Pregunta ${idx + 1}`}</div>
               {Array.isArray(q.options) ? (
                 <div className="grid gap-2">
                   {q.options.map((opt, oi) => (
@@ -110,4 +110,3 @@ export default function ListeningQuiz({ videoUrl, youtubeId, questions = [], tit
     </div>
   )
 }
-

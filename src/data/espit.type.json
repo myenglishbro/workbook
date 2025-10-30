@@ -1,0 +1,13 @@
+{
+  "id": "espit-t1",
+  "type": "espit",
+  "skill": "type",
+  "task": 1,
+  "title": "Fill the missing term (ESP‑IT)",
+  "question": "Type the missing word to complete each sentence.",
+  "questions": [
+    { "id": "q1", "prompt": "We will run a small ______ release to reduce risk.", "answer": "canary" },
+    { "id": "q2", "prompt": "Please add ______ criteria to the user story.", "answer": "acceptance" },
+    { "id": "q3", "prompt": "The new design aims to reduce ______ load in checkout.", "answer": "cognitive" }
+  ]
+}

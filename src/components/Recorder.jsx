@@ -32,14 +32,23 @@ export default function RecorderPro({
 
   const [error, setError] = useState("");
 
+  // Keep refs to latest objects so unmount cleanup can stop them
+  const mediaRecorderRef = useRef(null);
+  const streamRef = useRef(null);
+  const recognizerRef = useRef(null);
+  useEffect(() => { mediaRecorderRef.current = mediaRecorder; }, [mediaRecorder]);
+  useEffect(() => { streamRef.current = stream; }, [stream]);
+  useEffect(() => { recognizerRef.current = recognizer; }, [recognizer]);
+
+  // Cleanup only on unmount (avoid killing timer on state changes)
   useEffect(() => {
     return () => {
       stopTimer();
-      safeStop(mediaRecorder);
-      stopStream(stream);
-      safeStop(recognizer);
+      safeStop(mediaRecorderRef.current);
+      stopStream(streamRef.current);
+      safeStop(recognizerRef.current);
     };
-  }, [mediaRecorder, stream, recognizer]);
+  }, []);
 
   function formatTime(s) {
     const mm = String(Math.floor(s / 60)).padStart(2, '0');
@@ -169,6 +178,7 @@ export default function RecorderPro({
 
   const showLeft = Boolean(title?.trim() || instructions?.trim());
   const progressPct = limitSec ? Math.min(100, Math.round((elapsed / limitSec) * 100)) : 0;
+  const remaining = limitSec ? Math.max(0, limitSec - elapsed) : 0;
 
   // Heatmap helpers (normaliza con/ sin tildes)
   const norm = (s = "") => s.toString().toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '').trim();
@@ -251,9 +261,11 @@ export default function RecorderPro({
               "time-chip font-mono",
               recording ? "time-chip--live" : ""
             ].join(" ")}
-            title={limitSec ? `${formatTime(elapsed)} / ${formatTime(limitSec)}` : formatTime(elapsed)}
+            title={limitSec
+              ? `${formatTime(remaining)} restantes (usados: ${formatTime(elapsed)} / total: ${formatTime(limitSec)})`
+              : formatTime(elapsed)}
           >
-            {formatTime(elapsed)}{limitSec ? ` / ${formatTime(limitSec)}` : ""}
+            {limitSec ? formatTime(remaining) : formatTime(elapsed)}{limitSec ? ` / ${formatTime(limitSec)}` : ""}
           </span>
 
           {limitSec > 0 && (

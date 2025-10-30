@@ -23,6 +23,11 @@ import duolingoWriting from './data/duolingo.writing.json'
 import duolingoType from './data/duolingo.type.json'
 import celpipType from './data/celpip.type.json'
 import ieltsType from './data/ielts.type.json'
+import espitSpeaking from './data/espit.speaking.json'
+import espitReading from './data/espit.reading.json'
+import espitListening from './data/espit.listening.json'
+import espitWriting from './data/espit.writing.json'
+import espitType from './data/espit.type.json'
 
 // -------- Small UI helper --------
 const Chip = ({ children }) => <span className="c-chip">{children}</span>
@@ -48,6 +53,7 @@ const TYPES = [
   { id: 'cambridge', label: 'Cambridge' },
   { id: 'ielts', label: 'IELTS' },
   { id: 'duolingo', label: 'Duolingo' },
+  { id: 'espit', label: 'ESP-IT' },
 ]
 const SKILLS = [
   { id: 'speaking', label: 'Speaking', icon: Mic, short: 'Speak' },
@@ -87,6 +93,13 @@ const SEEDS = {
     ...asArray(duolingoWriting),
     ...asArray(duolingoType),
   ],
+  espit: [
+    ...asArray(espitSpeaking),
+    ...asArray(espitReading),
+    ...asArray(espitListening),
+    ...asArray(espitWriting),
+    ...asArray(espitType),
+  ],
 }
 
 export default function App() {
@@ -110,6 +123,7 @@ export default function App() {
       cambridge: mergeById(parsed.cambridge, SEEDS.cambridge),
       ielts: mergeById(parsed.ielts, SEEDS.ielts),
       duolingo: mergeById(parsed.duolingo, SEEDS.duolingo),
+      espit: mergeById(parsed.espit, SEEDS.espit),
     }
   })
 
